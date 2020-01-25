@@ -1,0 +1,34 @@
+
+
+.feed-wrapper {
+    width: 100%;
+    height: fit-content;
+    border-radius: 10px;
+    display: flex;
+    color: lightyellow;
+
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.feed-wrapper-note {
+    background-color: darkgreen;
+}
+
+.feed-wrapper-other {
+    background-color: blanchedalmond;
+}
+
+.feed-wrapper .title {
+    margin: 0;
+    padding: 0;
+    color: lightyellow;
+    font-size: 30px;
+}
+
+.feed-wrapper .date{
+    text-align: right;
+    padding: 0;
+    margin: 0;
+}

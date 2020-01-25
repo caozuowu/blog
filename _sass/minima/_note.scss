@@ -1,0 +1,33 @@
+
+
+.note-body {
+    background-color: lightgoldenrodyellow;
+    width: 100%;
+    // height: fit-content;
+    height: 90%;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.note-sidebar{
+    width: 200px;
+    height: auto;
+    overflow: scroll;
+    border: 2px solid darkcyan;
+    padding:5px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.note-iframe {
+    height: auto;
+    width: 10px;
+    flex-grow: 1;
+    overflow: scroll;
+    border: 2px solid darkcyan;
+    padding:5px;
+    margin-left: 10px;
+}

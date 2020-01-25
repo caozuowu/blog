@@ -1,0 +1,6 @@
+{%- include head.html -%}
+<div class="feed-wrapper feed-wrapper-{{include.post.type}}">
+    <a class="title" href='{{ include.post.url | relative_url }}'>{{ include.post.title }}</a>
+    {%- assign date_format = site.minima.date_format | default: "%b %d, %Y" -%}
+    <p class='date'>{{ include.post.date | date: date_format}}</p>
+</div>
