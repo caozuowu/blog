@@ -1,5 +1,5 @@
 ---
-# layout: post
+layout: none
 date:   2020-02-07 18:34:00 +0800
 title:  "ch2"
 categories: 
