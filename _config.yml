@@ -30,6 +30,7 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 markdown: kramdown
+highlighter: rouge
 assets_path: "/assets"
 
 # Build settings

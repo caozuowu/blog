@@ -1,9 +1,14 @@
 
+@font-face {
+    font-family: SimHei;
+    src: url(fonts/simhei.ttf)
+}
 
-.note-body {
+.note-wrapper {
     background-color: lightgoldenrodyellow;
     width: 100%;
     // height: fit-content;
+    flex-grow: 1;
     height: 90%;
     padding: 10px;
 
@@ -14,13 +19,24 @@
 .note-sidebar{
     width: 200px;
     height: auto;
-    overflow: scroll;
+    overflow-x: hidden; 
+    overflow-y: auto;
     border: 2px solid darkcyan;
-    padding:5px;
+    padding: 5px;
 
     display: flex;
     flex-direction: column;
 }
+
+.note-sidebar a {
+    // font: bold;
+    font-family: 'SimHei';
+    font-size: 16px;
+    line-height: 16px;
+    color: darkred;
+    padding: 3px;
+}
+
 
 .note-iframe {
     height: auto;

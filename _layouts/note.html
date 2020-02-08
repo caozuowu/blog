@@ -3,17 +3,19 @@
 ---
 <!DOCTYPE html>
 <html>
-    <script>
-        console.log("123");
-    </script>
+
     {%- include head.html -%}
-    <body class="note-body">
-        <div class="note-sidebar">
-            {% for post in site.categories[page.menu] %}
-                <a href="{{ post.url | relative_url }}" target="iframe">{{ post.title }}</a>
-            {% endfor %}
+
+    <body>
+        <!-- {%- include header.html -%} -->
+        <div class="note-wrapper">
+            <div class="note-sidebar">
+                {% for post in site.categories[page.menu] %}
+                    <a href="{{ post.url | relative_url }}" target="iframe">{{ post.title }}</a>
+                {% endfor %}
+            </div>
+            <iframe class="note-iframe" name='iframe' src="{{site.categories[page.menu][0].url | relative_url}}"></iframe>
         </div>
-        <iframe class="note-iframe" name='iframe' src="{{site.categories[page.menu][0].url | relative_url}}"></iframe>
     </body>
 
     <!-- {% for post in site.categories[page.menu] %}
