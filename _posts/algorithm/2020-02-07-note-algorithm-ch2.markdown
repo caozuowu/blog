@@ -9,38 +9,9 @@ categories:
 
 ---
 
-## algorithm ch2
+## 2.1 插入排序
 
- * ch1 -1
 
- ```javascript
-      function act(){
-        return 'abc'
-      }
- ```
-
- * c 
-
- ```c
-    //函数的增长
-    int main (int argc[], char ** argv) {
-      return 0;
-    }
- ```
-
- {% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
+{% highlight javascript %}
+  {% include_relative src/ch2/2.1_insert_srot.js %}
 {% endhighlight %}
-
- * ch2
-
-{% highlight c linenos %}
-  {% include_relative src/ch6/6.2.js %}
-{% endhighlight %}
-
-
-

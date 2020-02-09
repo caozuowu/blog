@@ -72,10 +72,10 @@
   .vi    { color: #008080 } // Name.Variable.Instance
   .il    { color: #099 } // Literal.Number.Integer.Long
 
-  .lineno { color: lightyellow; border: 1px solid lightyellow; border-radius: 5px;} //行号
-  .n      { color: #000;} //
+  .lineno { color: lightyellow; } //行号
+  .n      { color: #099;} //
   .k      { font-weight: bold; color: yellow; } // Keyword
-  .o      { font-weight: bold; color: lightyellow; } // Operator
+  .o      { font-weight: bold; color: yellow; } // Operator
   .p      { font-weight: bold; color: black;}
 }
 
