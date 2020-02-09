@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: content
 author: zuowu
 date:   2020-02-07 18:34:00 +0800
 title:  "函数的增长"

@@ -1,5 +1,5 @@
 
-var PrintHeap = require('./6.1.js').PrintHeap
+
 
 var MAX_HEAPIFY = function (A, i, callback = undefined) {
 
@@ -32,10 +32,7 @@ var MAX_HEAPIFY = function (A, i, callback = undefined) {
 
 
 
-// var Arr = [27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0]
-// PrintHeap(Arr)
+var Arr = [27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0]
 
-// MAX_HEAPIFY(Arr, 2, PrintHeap)
-// PrintHeap(Arr)
 
-module.exports.MAX_HEAPIFY = MAX_HEAPIFY
+module.exports.MAX_HEAPIFY = MAX_HEAPIFYß

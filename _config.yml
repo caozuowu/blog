@@ -34,9 +34,9 @@ highlighter: rouge
 assets_path: "/assets"
 
 # Build settings
-theme: minima
-plugins:
-  - jekyll-feed
+# theme: minima
+# plugins:
+#   - jekyll-feed
 
 
 
