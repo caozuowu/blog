@@ -22,6 +22,7 @@ categories:
  * c 
 
  ```c
+    //函数的增长
     int main (int argc[], char ** argv) {
       return 0;
     }
@@ -37,7 +38,7 @@ print_hi('Tom')
 
  * ch2
 
-{% highlight javascript linenos %}
+{% highlight c linenos %}
   {% include_relative src/ch6/6.2.js %}
 {% endhighlight %}
 

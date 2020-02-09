@@ -2,17 +2,20 @@
  * Syntax highlighting styles
  */
 .highlight {
-  background: #fff;
+  // background: #fff;
+  background-color: darkgreen;
+  border-radius: 10px;
+  color: black;
+
   @extend %vertical-rhythm;
 
   .highlighter-rouge & {
-    background: #eef;
+    background: darkgreen;
   }
 
   .c     { color: #998; font-style: italic } // Comment
   .err   { color: #a61717; background-color: #e3d2d2 } // Error
-  .k     { font-weight: bold } // Keyword
-  .o     { font-weight: bold } // Operator
+  
   .cm    { color: #998; font-style: italic } // Comment.Multiline
   .cp    { color: #999; font-weight: bold } // Comment.Preproc
   .c1    { color: #998; font-style: italic } // Comment.Single
@@ -33,7 +36,7 @@
   .kd    { font-weight: bold } // Keyword.Declaration
   .kp    { font-weight: bold } // Keyword.Pseudo
   .kr    { font-weight: bold } // Keyword.Reserved
-  .kt    { color: #458; font-weight: bold } // Keyword.Type
+  .kt    { color: lightyellow; font-weight: bold } // Keyword.Type
   .m     { color: #099 } // Literal.Number
   .s     { color: #d14 } // Literal.String
   .na    { color: #008080 } // Name.Attribute
@@ -68,6 +71,12 @@
   .vg    { color: #008080 } // Name.Variable.Global
   .vi    { color: #008080 } // Name.Variable.Instance
   .il    { color: #099 } // Literal.Number.Integer.Long
+
+  .lineno { color: lightyellow; border: 1px solid lightyellow; border-radius: 5px;} //行号
+  .n      { color: #000;} //
+  .k      { font-weight: bold; color: yellow; } // Keyword
+  .o      { font-weight: bold; color: lightyellow; } // Operator
+  .p      { font-weight: bold; color: black;}
 }
 
 

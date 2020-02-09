@@ -2,6 +2,12 @@
 
 // Define defaults for each variable.
 
+
+@font-face {
+  font-family: SimHei;
+  src: url(fonts/simhei.ttf)
+}
+
 $base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $base-font-size:   16px !default;
 $base-font-weight: 400 !default;

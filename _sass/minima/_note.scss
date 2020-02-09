@@ -1,11 +1,8 @@
 
-@font-face {
-    font-family: SimHei;
-    src: url(fonts/simhei.ttf)
-}
-
 .note-wrapper {
-    background-color: lightgoldenrodyellow;
+    // background-color: lightgoldenrodyellow;
+    // background-color: rgb(253, 229, 128);
+    background-color: white;
     width: 100%;
     // height: fit-content;
     flex-grow: 1;
@@ -17,24 +14,21 @@
 }
 
 .note-sidebar{
-    width: 200px;
+    min-width: 160px;
     height: auto;
     overflow-x: hidden; 
     overflow-y: auto;
-    border: 2px solid darkcyan;
-    padding: 5px;
-
+    border: 1px solid black;
+    padding: 10px 20px 10px 20px;
     display: flex;
     flex-direction: column;
 }
 
 .note-sidebar a {
-    // font: bold;
     font-family: 'SimHei';
     font-size: 16px;
     line-height: 16px;
-    color: darkred;
-    padding: 3px;
+    margin-bottom: 5px;
 }
 
 
@@ -43,7 +37,8 @@
     width: 10px;
     flex-grow: 1;
     overflow: scroll;
-    border: 2px solid darkcyan;
-    padding:5px;
+    border: 1px solid black;
+    padding: 0;
+    margin: 0;
     margin-left: 10px;
 }
