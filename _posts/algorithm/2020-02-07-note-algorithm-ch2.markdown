@@ -11,7 +11,27 @@ categories:
 
 ## 2.1 插入排序
 
-
 {% highlight javascript %}
   {% include_relative src/ch2/2.1_insert_srot.js %}
 {% endhighlight %}
+
+ * 时间复杂度 n^2
+
+## 2.3 分治法
+
+### 练习
+#### 2.1-4 两个n位二进制整数,存储在n元数组A和B中,这两个二进制整数的和按照二进制形式存储在(n+1)元数组C中
+
+{% highlight javascript %}
+  {% include_relative src/ch2/p2.1-4.js %}
+{% endhighlight %}
+
+#### 2.2-2 选择排序
+
+{% highlight javascript %}
+  {% include_relative src/ch2/p2.2-2.js %}
+{% endhighlight %}
+
+
+
+

@@ -3,12 +3,8 @@
 
 A = [1,2,3,4,5]
 
-def INSERT_SORT (Arr)
-    puts Arr
-    # for j in 2..Arr.length
-    #     key = Arr[j]
-    #     print key
-    # end
+def sort (a)
+    puts a
 end
 
-INSERT_SORT(A)
+sort(1)
