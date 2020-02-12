@@ -20,5 +20,7 @@ var SELECT_SORT = function (A) {
 }
 SELECT_SORT(arr);
 console.log(arr)
+
+
 //最好和最坏情况都一样 n(n-1)/2 + (c5 + c6 + c7 + c8) + (n-1)(c1 + c2 + c3 + c4 + c9 + c10)
 //Θ(n^2)

@@ -1,5 +1,5 @@
 
-export function INSERTION_SORT(A){
+var INSERTION_SORT = function(A) {
     for (var i = 1; i < A.length; i++) {
         var key = arr[i]
         //把 A[j] 插入到前面数组中合适的位置
