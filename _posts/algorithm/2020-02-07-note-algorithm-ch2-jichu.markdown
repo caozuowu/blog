@@ -17,7 +17,8 @@ categories:
 
 
 ## 2.3 分治法 归并排序
- * 时间复杂度 log(n)
+ * `MERGE`: 合并两个数组,选取两个数组顶部最小的    `MERGE_SORT`: 递归直到对一个元素进行排序 然后返回
+ * 时间复杂度 log(n) 递归树分析
 {% highlight javascript %}
   {% include_relative src/ch2/merge_sort.js %}
 {% endhighlight %}
