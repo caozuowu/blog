@@ -36,3 +36,23 @@ categories:
 {% highlight javascript %}
   {% include_relative src/ch2/p2.2-2.js %}
 {% endhighlight %}
+
+#### 2.3-2 重写MERGE，不使用哨兵
+
+{% highlight javascript %}
+  {% include_relative src/ch2/p2.3-2.js %}
+{% endhighlight %}
+
+#### 2.3-4 插入排序 递归
+
+{% highlight javascript %}
+  {% include_relative src/ch2/p2.3-4.js %}
+{% endhighlight %}
+
+#### 2.3-5 二分查找
+
+{% highlight javascript %}
+  {% include_relative src/ch2/p2.3-5.js %}
+{% endhighlight %}
+
+### 思考题
