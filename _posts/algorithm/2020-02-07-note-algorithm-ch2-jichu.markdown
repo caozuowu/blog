@@ -16,7 +16,6 @@ categories:
 {% endhighlight %}
 
 
-
 ## 2.3 分治法 归并排序
  * 时间复杂度 log(n)
 {% highlight javascript %}
@@ -36,7 +35,3 @@ categories:
 {% highlight javascript %}
   {% include_relative src/ch2/p2.2-2.js %}
 {% endhighlight %}
-
-
-
-
