@@ -3,66 +3,181 @@ permalink: /resume.html
 title: 'resume'
 ---
 
+
 <!DOCTYPE html>
 <html charset='utf-8'>
     <head>
         <meta charset="UTF-8">
         <style>
+
+            h1 {
+                font-size: 26px;
+                line-height: 26px;
+                margin: 0;
+            }
+
+            h2 {
+                font-size: 22px;
+                line-height: 22px;
+                margin: 0;
+            }
+
+            h3 {
+                font-size: 18px;
+                line-height: 18px;
+                margin: 0;
+            }
+
+            h4 {
+                font-size: 14px;
+                line-height: 14px;
+                margin: 0;
+            }
+   
             body{
-                width: 630px;
+                width: 660px;
+                min-height: 100vh;
                 height: fit-content;
                 background-color: white;
-                margin: 0;
-                border: 0;
+                color: black;
+                border: 1px rgba(0, 0, 0, 0.4) solid;
+                box-sizing: border-box;
                 display: flex;
+                padding: 20px 20px 20px 20px;
+                /* font-family: 'STXihei'; */
+                flex-direction: column;
             }
 
-            body div{
-                display: flex;
-            }
-
-            .personal{
-                width: 100%;
-                height: 160px;
+            header {
+                width: auto;
+                height: fit-content;
                 background-color: black;
                 color: white;
-                font-family: 'Times New Roman', Times, serif;
-                font-size: 20;
+                display: flex;
+                flex-direction: row;
                 padding: 20px;
+            }
+
+            header .message{
+                flex-grow: 1;
+                height: fit-content;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .contact {
+                width: 320px;
+                /* max-width: 100%; */
+                height: auto;
+                margin-top: 20px;
+                /* background-color: darkgreen; */
+                display: flex;
+                flex-direction: row;
+
+                font-size: 16px;
+                line-height: 16px;
+            }
+
+            header .photo{
+                flex-shrink: 0;
+                width: 120px;
+                height: auto;
+                /* background-color: darkgreen; */
+                padding: 20px;
+                margin-left: 20px;
+            }
+
+            main {
+                width: 100%;
+                min-width: 400px;
+                height: fit-content;
+                background-color: #ffffff;
+                color: black;
+                margin: 20px 0 20px 0;
+                padding: 10px 20px 10px 20px;
+
+                /* border: 1px red solid; */
+                box-sizing: border-box;
+
+                flex-direction: column;
+            }
+
+            main div {
+                width: auto;
+                height: fit-content;
+                padding: 10px 0 10px 0;
+                display: flex;
                 flex-direction: row;
             }
 
-            .personal .info{
-                flex-grow: 1;
-                height: auto;
-                /* border: lightcoral 1px solid; */
+            .detail {
+                /* width: 50%; */
+                min-height: 100px;
+                height: fit-content;
+                /* background-color: darkgoldenrod; */
+                flex: 1;
+
+
                 flex-direction: column;
-                padding: 10px;
-                font-size: 20px;
             }
-            .personal .info .name{
-                padding: 0;
-                margin: 0;
-            }
- 
-            .personal .photo{
-                width: 136px;
-                height: auto;
-                /* border: lightblue 1px solid; */
-                margin-left: 20px;
+
+            footer {
+                background-color: red;
+                width: auto;
+                min-height: 100px;
+                height: fit-content;
             }
         </style>
     </head>
-    <header>
-       <title>resume</title>
-    </header>
+
     <body>
-        <div class="personal">
-            <div class="info">
-                <p class="name">曹作武 Zuowu Cao</p>
-                <p class="title">ENG</p>
+
+        <header>
+            <div class="message">
+                <h1>Zuowu Cao</h1> 
+                <h2>IOS EEBG</h2>
+                <div class="contact">
+                    <div style="flex-grow: 1;">
+                        desc desc desc desc desc des desc desc desc desc desc desc desc desc desc desc desc descdesc desc desc desc desc desc desc desdesc desc desc
+                    </div>
+                    
+                    <div style="flex-direction: column; width: fit-content; flex-shrink: 0; margin-left: 5px;">
+                        <div>p : 18920162556</div>
+                        <div>e : 376604661@qq.com</div>
+                        <div>w : caozuowuofwechat</div>
+                    </div>
+                </div>
             </div>
             <div class="photo"></div>
-        </div>
+        </header>
+
+        <main>
+            <div>
+                introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction 
+            </div>
+            <hr/>
+            <div>
+                <div class="detail">
+                    <h4>Experienc</h4>
+                    <h4>Sina</h4>
+                    <p>
+                        balabala  balabala balabala  balabala balabala  balabala balabala  balabala balabala  balabala balabala  balabala balabala  balabala balabala  balabala balabala  balabala balabala  balabala balabala  balabala 
+                    </p>
+
+                    <h4>Experienc</h4>
+                    <h4>Sina</h4>
+                    <p>
+                        balabala  balabala balabala  balabala balabala  balabala balabala  balabala balabala  balabala balabala  balabala balabala  balabala balabala  balabala balabala  balabala balabala  balabala balabala  balabala 
+                    </p>
+                </div>
+                <div style="width: 10px;"></div>
+                <div class="detail">
+                    right
+                </div>
+            </div>
+        </main>
+
+        <footer></footer>
+
     </body>
 </html>
