@@ -1,11 +1,11 @@
----
+<!-- ---
 permalink: /resume.html
 title: 'resume'
----
-
+--- -->
 
 <!DOCTYPE html>
 <html charset='utf-8'>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <head>
         <meta charset="UTF-8">
         <style>
@@ -50,6 +50,7 @@ title: 'resume'
                 display: flex;
                 padding: 20px 20px 20px 20px;
                 flex-direction: column;
+                white-space: pre-line;
             }
 
            
@@ -89,8 +90,10 @@ title: 'resume'
                 width: 120px;
                 height: auto;
                 /* background-color: darkgreen; */
-                padding: 20px;
                 margin-left: 20px;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
             }
 
             main {
@@ -124,6 +127,14 @@ title: 'resume'
                 flex-direction: column;
             }
 
+            .detail div {
+                flex-direction: column;
+            }
+
+            .detail p {
+                margin: 0;
+            }
+
             footer {
                 background-color: red;
                 width: auto;
@@ -137,105 +148,212 @@ title: 'resume'
 
     <body>
 
-        <header>
-            <div class="message">
-                <h1>Zuowu Cao</h1> 
-                <h2>iOS 开发</h2>
-                <div class="contact">
-                    <div style="flex-grow: 1;">
-                   
+        <div id='app'>
+            
+            <header>
+                <div class="message">
+                    <h1>{{language.name}}</h1> 
+                    <h2>{{language.position}}</h2>
+                    <div class="contact">
+                        <div style="flex-grow: 1;">
+                        </div>
+                        
+                        <div style="flex-direction: column; width: fit-content; flex-shrink: 0; margin-left: 5px;">
+                            <div>phone : 18920162556</div>
+                            <div>e-mail : 376604661@qq.com</div>
+                            <div>wechat : caozuowuofwechat</div>
+                        </div>
                     </div>
-                    
-                    <div style="flex-direction: column; width: fit-content; flex-shrink: 0; margin-left: 5px;">
-                        <div>phone : 18920162556</div>
-                        <div>e-mail : 376604661@qq.com</div>
-                        <div>wechat : caozuowuofwechat</div>
+                </div>
+                <div class="photo">
+                    <div v-on:click="changeLanguage(en)">EN</div>/<div v-on:click="changeLanguage(ch)">CH</div>
+                </div>
+            </header>
+
+            <main>
+                <div>
+                    {{language.introduction}}
+                </div>
+                <hr/>
+                <div>
+                    <div class="detail">
+                        <h3 >{{language.experience.title}}</h3>
+                        <div v-for="item in language.experience.list">
+                            <h4 style="margin-bottom: 10px;">{{item.company}} | {{item.position}} <br> {{item.duration}}</h4>
+                            <p>{{item.content}}</p>
+                        </div>
+                        
+                    </div>
+                    <div style="background-color: gray; height: auto; width: 1px; margin: 0 20px 0 20px;"></div>
+                    <div class="detail">
+
+                        <h3>{{language.experties.title}}</h3>
+                        <div v-for='item in language.experties.list'>
+                            <h4>{{item.title}}</h4>
+                            <p>{{item.content}}</p>
+                        </div>
+    
+                        <hr>
+
+                        <h3 >{{language.project.title}}</h3>
+                        <p>{{language.project.content}}</p>
+
+                        <hr>
+
+                        <h3>{{language.eduaction.title}}</h3>
+                        <p>{{language.eduaction.content}}</p>
+
                     </div>
                 </div>
-            </div>
-            <div class="photo"></div>
-        </header>
+            </main>
 
-        <main>
-            <div>
-                introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction introduction 
-            </div>
-            <hr/>
-            <div>
-                <div class="detail">
-                    <h3>工作经历</h3>
-                    <h4>新浪微博 增值业务部 | iOS开发工程师 <br> 2018.12 - 今</h4>
-                    <p> 
-                        微博客户端部门相关业务开发 <br>
-                        部门业务技术支持，项目开发、上线、维护  <br>
-                        微博小程序开发，微信小程序开发 <br>
-                        技术研究和讨论 合作方技术对接
-                    </p>
-
-                    <h4>互爱(北京)科技有限公司 | 客户端开发 <br> 2017.3 - 2018.1</h4>
-                    <p>
-                        技术分析 制定开发进度,技术方案,编写客户端代码,审核工程代码 <br>
-                        开发辅助插件 项目线上维护 <br>
-                        一些功能模块架构以及技术分享等
-                    </p>
-
-                    <h4>北京爱乐游文化发展有限公司 | 海外客户端开发 <br> 2014.10 - 2016.12 </h4>
-                    <p>
-                        负责管理海外游戏技术团队进行本土游戏海外移植工作 <br>
-                        负责海外游戏版本游戏内容开发工作
-                    </p>
-
-                    <h4>天津市城通通信发展有限公司 | 软件工程师 <br> 2010.9 - 2014.10 </h4>
-                    <p>
-                        开发公司通信工程概预算软件 <br>
-                        开发公司宣传页面
-                    </p>
-                </div>
-                <div style="background-color: gray; height: auto; width: 1px; margin: 0 20px 0 20px;"></div>
-                <div class="detail">
-
-                    <h3>技能</h3>
-                    <h4>语言</h4>
-                    <p>
-                        C, OC, Python, Javascript, Xml, Json, Css
-                    </p>
-                    <h4>IOS</h4>
-                    <p>
-                        UI, Http, 动画, I/O, 内购, runtime, 常用SDK, AppStore 上架流程
-                    </p>
-                    <h4>游戏 & 图像</h4>
-                    <p>
-                        Cocos2D, OpenGL
-                    </p>
-                    <h4>基础技能</h4>
-                    <p>
-                        Xcode, VSCode <br>
-                        常用算法&数据结构,算法分析 <br>
-                        常用软件设计模式, 代理,通知,OOP <br>
-                        Microsoft Office <br>
-                    </p>
-
-                    <hr>
-
-                    <h3>项目经验</h3>
-                    <h4>
-                        微博-客户端(增值业务) <br>
-                        微博-增值衍生产品(一直播, 相关小程序) <br>
-                        互爱-胡莱三国(手游) <br>
-                        爱乐游-雷霆战机(手游, 国内&海外)
-                    </h4>
-
-                    <hr>
-
-                    <h3>教育经历</h3>
-                    <h4>2006.10-2010.7 本科  长江大学  </h4>
-                    <h4>2003.10-2006.7 高中 天津市武清区杨村一中 </h4>
-
-                </div>
-            </div>
-        </main>
-
-        <footer></footer>
-
+            <footer>
+                爱好
+            </footer>
+        </div>
     </body>
+
+    <script>
+
+        var ch = {
+            name : '曹作武',
+            position : 'iOS 开发工程师',
+            introduction: '2014年开始手机平台应用和游戏开发工作，有大型游戏，应用开发经验',
+            experience: {
+                title: '工作经验',
+                list: [
+                    {
+                        company: '新浪微博 增值业务部',
+                        position: 'iOS 开发工程师',
+                        duration: '2018.12 - 今',
+                        content: '微博客户端部门相关业务开发\n部门业务技术支持，项目开发、上线、维护\n微博小程序开发，微信小程序开发\n技术研究和讨论 合作方技术对接'                    },
+                    {
+                        company: '互爱(北京)科技有限公司',
+                        position: '客户端开发',
+                        duration: '2017.3 - 2018.1',
+                        content:'技术分析 制定开发进度,技术方案,编写客户端\n代码,审核工程代码\n开发辅助插件 项目线上维护\n一些功能模块架构以及技术分享等'
+                    },
+                    {
+                        company: '北京爱乐游文化发展有限公司',
+                        position: '海外客户端开发',
+                        duration: '2014.10 - 2016.12',
+                        content:'负责管理海外游戏技术团队进行本土游戏海外移植工作\n负责海外游戏版本游戏内容开发工作'
+                    },
+                    {
+                        company: '天津市城通通信发展有限公司',
+                        position: '软件工程师',
+                        duration: '2010.9 - 2014.10',
+                        content:'开发公司通信工程概预算软件\n开发公司宣传页面',
+                    },
+                ]
+            },
+            experties: {
+                title: '技能',
+                list: [
+                    {
+                        title: '编程',
+                        content: 'C, OC, Python, Javascript, Xml, Json, Css'
+                    },
+                    {
+                        title: 'iOS',
+                        content: '常用SDK, UI, 线程, HTTP, 动画, I/O, 内购, AppStore 上架流程, iOS 及移动应用基本架构, 移动端微信小程序开发'
+                    },
+                    {
+                        title: '游戏 & 图像',
+                        content: 'Cocos2d, OpenGL'
+                    },
+                    {
+                        title: '基础',
+                        content: 'Xcode, VScode\n 常用算法&数据结构,算法分析\n 常用软件设计模式, 代理,通知,OOP\n Microsoft Office'
+                    }
+                ],
+            },
+            project: {
+                title: '项目经验',
+                content: '微博-客户端(增值业务)\n微博-增值衍生产品(一直播, 相关小程序)\n互爱-胡莱三国(手游)\n爱乐游-雷霆战机(手游, 国内&海外)'
+            },
+            eduaction: {
+                title: '教育经历',
+                content:'2006.10-2010.7 本科 长江大学\n2003.10-2006.7 高中 天津市武清区杨村一中'
+            }
+        }
+
+        var en = {
+            name : 'Zuow Cao',
+            position : 'iOS Plantform Engineer',
+            introduction: 'Started mobile platform application and game development in 2014, with experience in large-scale games and application development',
+            experience: {
+                title: 'Experience',
+                list: [
+                    {
+                        company: 'Sina Weibo Payment & Finance Department',
+                        position: 'iOS Plantform Engineer',
+                        duration: '2018.12 - now',
+                        content: 'Development Business on weibo mobile app.\nTechnical support of Department business,coding,upper line.\nDevelopment of Weibo and Wechat micro program.\nTechnical research and discussion, Technical connection with partners.'
+                    },
+                    {
+                        company: 'Huai(Beijing) Technology Co., Ltd',
+                        position: 'Client Plantform Engineer',
+                        duration: '2017.3 - 2018.1',
+                        content:'Technical analysis,Define development schedule,Technical proposal.\n Coding and code review.\nDevelopment of auxiliary plug-ins.\nSome functional module architecture and technology sharing.'
+                    },
+                    {
+                        company: 'Beijing aileyou Culture Development Co., Ltd',
+                        position: 'Overseas client development engineer',
+                        duration: '2014.10 - 2016.12',
+                        content:'Responsible for managing the overseas game technology team to carry out the overseas transplantation of local Games.\nResponsible for the content development of overseas game versions.'
+                    },
+                    {
+                        company: 'Tianjin Chengtong Communication Development Co., Ltd',
+                        position: 'software engineer',
+                        duration: '2010.9 - 2014.10',
+                        content:'Develop the company\'s communication engineering budget software.\nDevelopment company publicity page.',
+                    },
+                ]
+            },
+            experties: {
+                title: 'Professional skills',
+                list: [
+                    {
+                        title: 'Coding',
+                        content: 'C, OC, Python, Javascript, XML, Json, Css'
+                    },
+                    {
+                        title: 'iOS',
+                        content: 'Regular SDK, UI, Thread, HTTP, Animation, I/O, In-App Purchase, iOS basic architecture of mobile application, Development of wechat micro programe'
+                    },
+                    {
+                        title: 'Game & Image Processing',
+                        content: 'Cocos2d, OpenGL'
+                    },
+                    {
+                        title: 'Basic',
+                        content: 'Xcode, VScode\n Common algorithms & data structure, algorithm analysis\n 常Common software design patterns, agents, notifications,OOP\n Microsoft Office'
+                    }
+                ],
+            },
+            project: {
+                title: 'Project',
+                content: 'Weibo iOS app (Payment & financial business)\nWeibo Derivative products(YIZHIBO, micro program)\nThe Three Kingdoms(Mobile game)\nThunderstruck(Mobile game, Domestic & Overseas)'
+            },
+            eduaction: {
+                title: 'Education',
+                content:'2006.10-2010.7 college Yangzi University\n2003.10-2006.7 highschool Yangcun No.1 middle school, Wuqing District, Tianjin'
+            }
+        }
+  
+        var app = new Vue({
+            el: '#app',
+            data: {
+                language: en,
+            },
+            methods: {
+                changeLanguage: function(lan){
+                    this.language = lan
+                }
+            }
+        })
+
+    </script>
+
 </html>
