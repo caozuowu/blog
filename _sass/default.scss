@@ -38,19 +38,19 @@ body{
   }
 }
    
-  @media only screen and (min-width: 321px) and (max-width: 1024px){
+@media only screen and (min-width: 321px) and (max-width: 1024px){
   // 这里写宽度大于321px小于1024px的样式(一般是平板电脑)
   body .container {
     width: 100vw;
+  }
 }
-  }
    
-  @media only screen and (min-width: 1029px){
+@media only screen and (min-width: 1029px){
   // 这里写pc客户端的样式
-    body .container{
-      width: 760px;
-    }
+  body .container{
+    width: 760px;
   }
+}
 
 header{
   min-height: 36px;
