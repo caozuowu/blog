@@ -1,10 +1,10 @@
 ---
-layout: content
+# layout: content
 author: zuowu
 date:   2020-02-07 18:34:00 +0800
 title:  "算法基础"
 categories: 
-  - note
+  - home
   - algorithm 
 ---
 

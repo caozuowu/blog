@@ -1,8 +1,19 @@
 <header>
 
-  <div>
-    {%- assign default_paths = site.pages | map: "path" -%}
-    {%- assign page_paths = site.header_pages | default: default_paths -%}
-    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+
+  {%- assign default_paths = site.pages | map: "path" -%}
+  {%- assign page_paths = site.header_pages | default: default_paths -%}
+
+  <div class='title'>
+    <a rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
   </div>
+
+  <div class="cut-line"></div>
+
+    {%- for cc in site.categories -%}
+      <div class="category">
+        <a href="./{{ cc | first}}.html">{{ cc | first}}</a>
+      </div>
+    {%- endfor -%}
+
 </header>

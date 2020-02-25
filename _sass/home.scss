@@ -6,4 +6,41 @@
     min-height: 900px;
     display: flex;
     flex-direction: row;
+
+    main {
+        flex-grow: 1;
+        height: auto;
+
+        // border-left: 1px solid black;
+        box-shadow:2px -2px 10px #000;
+        padding: 20px;
+
+        iframe{
+            width: 100%;
+            overflow-x: auto;
+            border: 0;
+        }
+    }
+
+    .right-side {
+        width: 180px;
+        height: fit-content;
+        // border: 1px solid black;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        box-shadow:2px -2px 10px #000;
+    }
+
+    .menu {
+        width: auto;
+        min-height: 200px;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;        
+    }
+
+
 }
+

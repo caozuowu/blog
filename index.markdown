@@ -1,9 +1,8 @@
 ---
+permalink: /home.html
 layout: home
-title: 'undefined'
+title: 'home title'
+post-category: 'home'
 ---
 
 
-
-
-index.md

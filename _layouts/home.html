@@ -2,8 +2,43 @@
 layout: default
 ---
 
-
 <div class='home'>
-  home
-  {{content}}
+
+  <main>
+
+    {{content}}
+
+    <iframe id='postIframe' name="iFramePost" src='{{site.categories[page.post-category][1].url | relative_url}}'
+      scrolling=no>
+    </iframe>
+
+  </main>
+
+  <div class='right-side'>
+
+    <div class='menu'>
+      {%- for post in site.categories[page.post-category] -%}
+      <a target="iFramePost" href="{{post.url | relative_url}}">{{post.title}}</a>
+      {%- endfor -%}
+    </div>
+
+  </div>
+
 </div>
+
+<script language="JavaScript" type="text/javascript">
+
+  function setIframeHeight(iframe) {
+    if (iframe) {
+      var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+      if (iframeWin.document.body) {
+        iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+      }
+    }
+  };
+
+  window.onload = function () {
+    setIframeHeight(document.getElementById('postIframe'));
+  };
+  
+</script>
