@@ -10,9 +10,10 @@
 
   <div class="cut-line"></div>
 
-    {%- for cc in site.categories -%}
+    
+    {%- for category in site.categories -%}
       <div class="category">
-        <a href="./{{ cc | first}}.html">{{ cc | first}}</a>
+        <a href="./{{ category | first}}.html">{{ category | first}}</a>
       </div>
     {%- endfor -%}
 

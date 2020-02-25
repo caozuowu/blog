@@ -1,0 +1,16 @@
+
+.post-body{
+    flex-direction: column;
+
+    .highlight {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    pre{
+        // width: 100%;
+        background-color: black;
+        color: white;
+    }
+}
