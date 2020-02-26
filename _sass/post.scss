@@ -6,11 +6,14 @@
         padding: 0;
         margin: 0;
         width: 100%;
+        // background-color: rgba(0, 0, 0, 0.6);
+        background-color: black;
     }
 
-    pre{
-        // width: 100%;
-        background-color: black;
-        color: white;
-    }
+    pre{ color: white; }
+
+    .kd  { color: lightblue; }
+    .nx  { color: darksalmon; }
+    .k   { color: darkcyan; }
+    .c1  { color: green; }
 }
