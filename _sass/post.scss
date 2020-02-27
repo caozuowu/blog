@@ -13,6 +13,8 @@
     justify-content: start;
     // height: 999px;
     // height: fit-content;
+    overflow-x: scroll;
+
     min-height: 100vh;
     .highlight {
         padding: 0;
@@ -20,6 +22,10 @@
         width: 100%;
         // background-color: rgba(0, 0, 0, 0.6);
         background-color: black;
+        overflow-x: scroll;
+    }
+    .highlight::-webkit-scrollbar{
+        display: none;
     }
 
     pre{ color: white; }
