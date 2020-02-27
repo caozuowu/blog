@@ -1,16 +1,29 @@
 ---
 layout: default
+pindex: 0
 ---
+
+<script>
+
+  function iFrameHeight(height) {
+    var iframe = document.getElementById('postIframe');
+    iframe.height = height; 
+  }
+
+  function onMenuItemClick(url){
+    var iframe = document.getElementById('postIframe');
+    iframe.height = 0;
+    iframe.setAttribute("src", url);
+  }
+
+</script>
 
 <div class='home'>
 
   <main>
 
     {{content}}
-
-    <iframe id='postIframe' name="iFramePost" src='{{site.categories[page.post-category][1].url | relative_url}}'
-      scrolling=no>
-    </iframe>
+    <iframe src='{{site.categories[page.post-category][1].url | relative_url}}' id='postIframe' name="iFramePost" width='100%' scrolling='no'></iframe>
 
   </main>
 
@@ -18,28 +31,10 @@ layout: default
 
     <div class='menu'>
       {%- for post in site.categories[page.post-category] -%}
-      <a target="iFramePost" href="{{post.url | relative_url}}">{{post.title}}</a>
+        <a href="#" onclick="onMenuItemClick('{{post.url | relative_url}}')">{{post.linkname}}</a>
       {%- endfor -%}
     </div>
 
   </div>
 
 </div>
-
-<script language="JavaScript" type="text/javascript">
-
-  function setIframeHeight(iframe) {
-    if (iframe) {
-      var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
-      if (iframeWin.document.body) {
-        iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
-      }
-    }
-  };
-
-
-  window.onload = function () {
-    setIframeHeight(document.getElementById('postIframe'));
-  };
-  
-</script>

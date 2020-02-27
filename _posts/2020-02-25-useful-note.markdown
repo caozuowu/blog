@@ -2,6 +2,7 @@
 layout: post
 author: zuowu
 date:   2020-02-25 21:33:00 +0800
+linkname: Useful Note
 categories: 
   - home
 ---

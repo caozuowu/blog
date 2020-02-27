@@ -19,6 +19,9 @@
             width: 100%;
             overflow-x: auto;
             border: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
         }
     }
 

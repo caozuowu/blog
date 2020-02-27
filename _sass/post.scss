@@ -1,7 +1,19 @@
 
-.post-body{
-    flex-direction: column;
+.post-title{
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-size: 33px;
+    font-family: 'SimHei';
+}
 
+.post-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    // height: 999px;
+    // height: fit-content;
+    min-height: 100vh;
     .highlight {
         padding: 0;
         margin: 0;
@@ -13,7 +25,7 @@
     pre{ color: white; }
 
     .kd  { color: lightblue; }
-    .nx  { color: darksalmon; }
+    .nx  { color: darkorange; }
     .k   { color: darkcyan; }
     .c1  { color: green; }
 }

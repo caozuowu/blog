@@ -2,13 +2,21 @@
 <!DOCTYPE html>
 <html>
     {%- include head.html -%}
-
-    <body class='post-body'>
+    {%- if page.title -%}
+        <div class="post-title">
+            {{page.title}}
+        </div>
+    {%- endif -%}
+    <body class='post-body' onload="onLoad()">
         {{content}}
     </body>
-    
-    
 </html>
+
+<script>
+    function onLoad(){
+        window.parent.iFrameHeight(this.document.body.scrollHeight);
+    }
+</script>
 
 
 

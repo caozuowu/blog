@@ -1,12 +1,12 @@
 ---
-layout: none
+layout: post
 author: zuowu
 date:   2020-02-13 20:15:00 +0800
-title:  "递归"
+linkname: 'ch4 分治策略'
+title:  "分治法"
 categories: 
-  - home
   - algorithm 
 ---
-
 ## algorithm ch1
+ * abc
 
