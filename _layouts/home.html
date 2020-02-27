@@ -16,6 +16,15 @@ pindex: 0
     iframe.setAttribute("src", url);
   }
 
+  function onHeaderMenuBtnClick() {
+    var div = document.getElementsByClassName('right-side')[0];
+    if (div.style.display == 'none') {
+      div.style.display = 'flex';
+    }else {
+      div.style.display = 'none';
+    }
+  }
+
 </script>
 
 <div class='home'>

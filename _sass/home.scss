@@ -6,6 +6,7 @@
     min-height: 900px;
     display: flex;
     flex-direction: row;
+    position: relative;
 
     main {
         flex-grow: 1;
@@ -46,4 +47,32 @@
 
 
 }
+
+
+
+
+@media screen and (min-width: 320px) and (max-width: 480px){
+    // 在这里写小屏幕设备的样式
+    .home .right-side {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: rgba($color: #E6E6FA, $alpha: 0.5);
+    }
+}
+     
+  @media only screen and (min-width: 321px) and (max-width: 1024px){
+    // 这里写宽度大于321px小于1024px的样式(一般是平板电脑)
+    .home .right-side {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: rgba($color: #E6E6FA, $alpha: 0.5);
+    }
+}
+     
+  @media only screen and (min-width: 1029px){
+    // 这里写pc客户端的样式
+ 
+  }
 
