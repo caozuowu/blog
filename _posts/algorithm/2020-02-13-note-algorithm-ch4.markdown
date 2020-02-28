@@ -17,6 +17,19 @@ categories:
   {% include_relative src/ch4/max_sub_arr.js %}
 {% endhighlight %}
 
+ * 算法分析     
+   T(n) = {Ø(1) (n=1) , 2TØ(n/2) + Ø(n) (n>1) }    
+   复杂的 nlog(n): 每个递归层都是n次计算,一共递归log(n)次 (递归图法)  
+
+### 练习  
+#### 4.1-2 对最大子数问题编写暴力求解代码
+{% highlight javascript %}
+  {% include_relative src/ch4/p4.1-2.js   %}
+{% endhighlight %}
+   
+
+
+
 
 
 
