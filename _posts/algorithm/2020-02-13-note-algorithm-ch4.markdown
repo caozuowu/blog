@@ -35,6 +35,13 @@ S=现有已知最大,然后直接从A[k+1]往后查找比较？
   {% include_relative src/ch4/matrix.js %}
 {% endhighlight %}
 
+### 4.3 用代入法求解递归式
+ 1. 猜测解的形式
+ 2. 用数学归纳法证明
+
+<!-- $ J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha} \text {，行内公式示例} $ -->
+
+$T(n) = 2T(n/2) + n$ 猜测 $O(nlgn)$
 
 
 

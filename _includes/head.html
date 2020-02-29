@@ -4,7 +4,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+
+  <script type="text/javascript"
+          src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://myserver.com/MathJax/config/local/local.js">
+  </script>
+
+  <script type="text/x-mathjax-config">
+           MathJax.Hub.Config({
+               tex2jax: {
+                   inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                   displayMath: [ ['$$','$$'], ["\\[","\\]"]],
+                   skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a']
+               }
+           });
+           MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+  </script>
+
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
-    {%- include google-analytics.html -%}
+  {%- include google-analytics.html -%}
   {%- endif -%}
 </head>

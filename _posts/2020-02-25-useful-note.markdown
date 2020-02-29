@@ -10,4 +10,9 @@ categories:
 ### App 在macOS 下提示已损坏无法打开解决办法 (替换包内文件时)     
  * abc `sudo xattr -d com.apple.quarantine /Applications/xxxx.app`
 
+### mathjax 
+
+  [html配置html方法](https://www.linpx.com/p/front-end-integration-mathjaxjs-configuration.html)    
+
+
    
