@@ -1,8 +1,9 @@
 
 var C = [
-    [1,2,3],
-    [4,5,6],
-    [7,8,9]
+    [1,2,3,4],
+    [5,6,7,8],
+    [9,10,11,12],
+    [13,14,15,16]
 ]
 
 Array.prototype.mstr = function(){
@@ -22,17 +23,17 @@ function disassemble(arr) {
     var size = arr[0].length
     var n = Math.floor(size/2);
 
-    var C1 = []
-    var C2 = []
-    var C3 = []
-    var C4 = []
+    var C11 = []
+    var C12 = []
+    var C21 = []
+    var C22 = []
 
     for (var i = 0; i < n; i++) {
         var line = []
         for (var j = 0; j < n ; j++) {
             line.push(arr[i][j])
         }
-        C1.push(line)
+        C11.push(line)
     }
 
     for (var i = 0; i < n; i++) {
@@ -40,7 +41,7 @@ function disassemble(arr) {
         for (var j = n; j < size ; j++) {
             line.push(arr[i][j])
         }
-        C2.push(line)
+        C12.push(line)
     }
 
     for (var i = n; i < size; i++) {
@@ -48,7 +49,7 @@ function disassemble(arr) {
         for (var j = 0; j < n ; j++) {
             line.push(arr[i][j])
         }
-        C3.push(line)
+        C21.push(line)
     }
 
     for (var i = n; i < size; i++) {
@@ -56,68 +57,90 @@ function disassemble(arr) {
         for (var j = n; j < size ; j++) {
             line.push(arr[i][j])
         }
-        C4.push(line)
+        C22.push(line)
     }
 
-//    var line1 = []
-//    var line2 = []
-//    var line3 = []
-//    var line4 = []
-//     for (var i = 0 ; i < size; i ++) {
-//         for (var j = 0; j < size; j++) {
-//             if (i < n && j < n) {
-//                 if (j == n) {
-//                     line1 == []
-//                 }
-//                 line1.push(arr[i][j])
-//             }else if (i < n && n - 1 < j ) {
-//                 if (j == n) {
-//                     line2 == []
-//                 }
-//                 line2.push(arr[i][j])
-//             }else if (n - 1 < i && j < n) {
-//                 if (j == n) {
-//                     line3 == []
-//                 }
-//                 line3.push(arr[i][j])
-//             }else {
-//                 if (j == n) {
-//                     line4 == []
-//                 }
-//                 line4.push(arr[i][j])
-//             }
-//         }
+    // console.log(C11.mstr())
+    // console.log(C12.mstr())
+    // console.log(C21.mstr())
+    // console.log(C22.mstr())
 
-//         if (line1.length != 0) {
-//             C1.push(line1)
-//             line1 = []
-//         }
-//         if (line2.length != 0) {
-//             C2.push(line2)
-//             line2 = []
-//         }
-//         if (line3.length != 0) {
-//             C3.push(line3)
-//             line3 = []
-//         }
-//         if (line4.length != 0) {
-//             C4.push(line4)
-//             line4 = []
-//         }
-//     }
-
-    // console.log(C1.mstr())
-    // console.log(C2.mstr())
-    // console.log(C3.mstr())
-    // console.log(C4.mstr())
-
-    return {C1,C2,C3,C4}
-
+    return [C11,C12,C21,C22]
 }
-
-var res = disassemble(C)
 
 function synthetize(C11, C12, C21, C22){
-    return []
+
+    var h = C11.length + C21.length;
+    var w = C11[0].length + C12[0].length;
+    var C = Array(h)
+    for (var i = 0; i < C.length; i++) {
+        C[i] = Array(w)
+    }
+
+    for (var i = 0; i < C11.length; i++) {
+        for (var j = 0; j < C11[i].length; j++) {
+            C[i][j] = C11[i][j]
+        }
+    }
+
+    for (var i = 0; i < C12.length; i++) {
+        for (var j = 0; j < C12[i].length; j++) {
+            C[i][j + C11[0].length] = C12[i][j]
+        }
+    }
+
+    for (var i = 0; i < C21.length; i++) {
+        for (var j = 0; j < C21[i].length; j++) {
+            C[i + C11.length][j] = C21[i][j]
+        }
+    }
+
+    for (var i = 0; i < C22.length; i++) {
+        for (var j = 0; j < C22[i].length; j++) {
+            C[i + C11.length][j + C11[0].length] = C22[i][j]
+        }
+    }
+
+    return C
 }
 
+function add_matrix(A, B) {
+    var C = []
+    for(var i = 0; i < A.length; i ++) {
+        C.push(Array(A.length))
+    }
+    for (var i = 0; i < A.length; i++) {
+        for (var j = 0; j < A[i].length; j++) {
+            C[i][j] = A[i][j] + B[i][[j]]
+        }
+    }
+    return C
+}
+
+
+var SQUARE_MATRIX_MULITIPLY_Y_RECURSIVE = function (A, B) {
+    var n = A.length;
+    if (n == 1) {
+        return A[0][0] * B[0][0];
+    }else {
+        var resA = disassemble(A);
+
+        var A11 = resA[0];
+        var A12 = resA[1];
+        var A21 = resA[2];
+        var A22 = resA[3];
+
+        var resB = disassemble(B);
+
+        var B11 = resB[0];
+        var B12 = resB[1];
+        var B21 = resB[2];
+        var B22 = resB[3];
+
+        var C11 = add_matrix(SQUARE_MATRIX_MULITIPLY_Y_RECURSIVE(A11,B11) ,SQUARE_MATRIX_MULITIPLY_Y_RECURSIVE(A12,B21))
+        var C12 = add_matrix(SQUARE_MATRIX_MULITIPLY_Y_RECURSIVE(A11,B11) ,SQUARE_MATRIX_MULITIPLY_Y_RECURSIVE(A12,B21))
+        var C21 = add_matrix(SQUARE_MATRIX_MULITIPLY_Y_RECURSIVE(A11,B11) ,SQUARE_MATRIX_MULITIPLY_Y_RECURSIVE(A12,B21))
+        var C22 = add_matrix(SQUARE_MATRIX_MULITIPLY_Y_RECURSIVE(A11,B11) ,SQUARE_MATRIX_MULITIPLY_Y_RECURSIVE(A12,B21))
+        return synthetize(C11,C12,C21,C22)
+    }
+}
