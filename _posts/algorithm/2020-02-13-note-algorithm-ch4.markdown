@@ -41,7 +41,33 @@ S=现有已知最大,然后直接从A[k+1]往后查找比较？
 
 <!-- $ J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha} \text {，行内公式示例} $ -->
 
-$T(n) = 2T(n/2) + n$ 猜测 $O(nlgn)$
+$T(n) = 2T(\lfloor n/2 \rfloor) + n$ ,猜测为 $T(n) = O(n\lg(n)), 有 T(n)\leq cn \lg(n)$
+
+$把猜测带入 取一个变量 m = \lfloor n/2 \rfloor$
+$有T(\lfloor n/2 \rfloor) \leq c \lfloor n/2 \rfloor \lg(\lfloor n/2 \rfloor)$
+
+<!-- $$
+\begin{align}
+T(n) &\leq 2(c (\lfloor n/2 \rfloor) \lg(n/2)+n \leq cn\lg(n/2) + n \\
+& = cn\lg(n) - cnlg(2) + n \\
+& = cn\lg(n) - cn \leq cn\lg(n) \\
+\end{align}
+$$ -->
+
+
+### 4.4 用递归树求解递归式 
+ * 画图, 看递归层数,一般都是logn次
+
+### 4.5 用主方法求解递归式
+
+  $T(n) = aT(n/b) + f(n) , a>=1, b>1,$    
+  $f(n) = O(n^{\log_ba-ε)}), (ε>0),f(n) 有上界,则 T(n) = Θ(n^{\log_ba})$
+  $f(n) = Θ(n^{\log_ba}), f(n)有准确界,则 T(n) = Θ(n^{\log_ba}\lg(n))$
+  $f(n) = Ω(n^{\log_ba+ε}), (ε>0) 且对某个常数c<1 和所有足够大的n有 af(n/b) <= cf(n), 则T(n) = Θ(f(n))$
+
+
+
+
 
 
 

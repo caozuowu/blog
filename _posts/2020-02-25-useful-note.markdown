@@ -11,8 +11,9 @@ categories:
  * abc `sudo xattr -d com.apple.quarantine /Applications/xxxx.app`
 
 ### mathjax 
-
+  [官网](https://www.mathjax.org)    
   [html配置html方法](https://www.linpx.com/p/front-end-integration-mathjaxjs-configuration.html)    
+  [公式](https://www.jianshu.com/p/a7fa1ed4ca20)
 
 
    
