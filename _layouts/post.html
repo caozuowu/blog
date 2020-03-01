@@ -10,13 +10,15 @@
     <body class='post-body' onload="onLoad()">
         {{content}}
     </body>
+
+    <script>
+        function onLoad(){
+            window.parent.iFrameHeight(this.document.body.scrollHeight);
+        }
+    </script>
 </html>
 
-<script>
-    function onLoad(){
-        window.parent.iFrameHeight(this.document.body.scrollHeight);
-    }
-</script>
+
 
 
 
