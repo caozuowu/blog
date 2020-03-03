@@ -43,6 +43,22 @@ HIRE_ASSISTANT = function(n){
     $E[n] = \sum_{i=1}^b \frac{b}{b-i+1} = b\sum_{i=1}^b \frac{1}{i} = b\ln(b + O(1))$
   * 一个人如果想要收集b种不同礼券中的每一种大约至少需要$b\ln(b)$张随机礼券   
 
-#### 5.4.2 特征序列
+#### 5.4.3 特征序列
  * 假设透支一枚标准硬币n次，最长连续正面序列期望 $Θ(\lg(n))$
  * 最长特征序列长度至少为$r\ \lceil lg(n) \rceil$的概率至多是$n/n^r = 1/n^{r-1}$
+
+#### 5.4.4 在线雇佣问题
+  * 先面试k个人，得出最高，然后面试后面的，如果比这之前最高的高的雇佣，否则雇佣最后一个    
+
+```
+ON-LINE-MAXIMUM(k, n)
+  bestscore = -∞
+  for i = 1 to k
+    if score(i) > bestscore
+      bestscore = score(i)
+  for i = k + 1 to n
+    if score(i) > bestscore
+      return i
+  reutrn n
+```
+ * 如果用k=n/e，那么至少有1/e的概率成功雇佣....证明不写了
