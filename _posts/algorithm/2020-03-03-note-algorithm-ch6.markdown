@@ -27,3 +27,5 @@ categories:
 {% highlight javascript %}
   {% include_relative src/ch6/heap.js %}
 {% endhighlight %}
+
+### 优先队列

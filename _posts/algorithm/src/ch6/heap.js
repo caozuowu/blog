@@ -3,7 +3,7 @@
 var HEAP = function(A, size, callback = undefined){
 
     this.A = A;
-    this.heap_size = size;
+    this.heap_size = size ? size : A.length;
 
     this.PRINT = function(){
         var n = Math.floor(Math.log(this.A.length)/Math.log(2))
@@ -41,12 +41,12 @@ var HEAP = function(A, size, callback = undefined){
         var l = this.LEFT(i)
         var r = this.RIGHT(i)
         var largest = l
-        if (l <= this.heap_size && this.A[l] > this.A[i]) {
+        if (l < this.heap_size && this.A[l] > this.A[i]) {
             largest = l
         }else {
             largest = i
         }
-        if (r <= this.heap_size && this.A[r] > this.A[largest]) {
+        if (r < this.heap_size && this.A[r] > this.A[largest]) {
             largest = r
         }
         if (largest != i) {
@@ -87,8 +87,7 @@ var HEAP = function(A, size, callback = undefined){
 
 
 console.log(123)
-var h = new HEAP([6,4,5,3,2,1,7,9,4,5,3,2], 12)
-h.PRINT()
-h.BUILD_MAX_HEAP()
+var h = new HEAP([6,4,5,3,2,1,7,9,4,5,3,2])
+h.HEAPSORT()
 h.PRINT()
 module.exports.HEAP = HEAP;
