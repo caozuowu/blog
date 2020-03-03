@@ -85,8 +85,6 @@ var HEAP = function(A, size, callback = undefined){
     
 };
 
-
-console.log(123)
 var h = new HEAP([6,4,5,3,2,1,7,9,4,5,3,2])
 h.HEAPSORT()
 h.PRINT()
