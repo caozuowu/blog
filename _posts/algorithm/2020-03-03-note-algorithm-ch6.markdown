@@ -29,3 +29,22 @@ categories:
 {% endhighlight %}
 
 ### 优先队列
+  * INSERT(x)：插入x元素 $O(\lg(n))$    
+    MAXIMUN()：返回最大  $O(1)$    
+    EXTRACT-MAX()：弹出最大 $O(\lg(n))$    
+    INCREASE-KEY(x,k)：在指定位置插入x $O(\lg(n))$    
+
+{% highlight javascript %}
+  {% include_relative src/ch6/prionity_queue.js %}
+{% endhighlight %}
+
+### 练习
+#### 6.2 d叉堆
+  .a 如何在一个数组中表示一个d叉堆...    
+  .b 包含n个元素的d叉堆的高度是多少 $\lfloor \log_d(n) \rfloor$    
+  .c EXTRACT-MAX实现，复杂度：$O(\log_d(n))$     
+  .d INSERT实现，复杂度：$O(\log_d(n))$ 
+
+{% highlight javascript %}
+  {% include_relative src/ch6/p6.2-heapD.js %}
+{% endhighlight %}

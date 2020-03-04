@@ -85,7 +85,7 @@ var HEAP = function(A, size, callback = undefined){
     
 };
 
-var h = new HEAP([6,4,5,3,2,1,7,9,4,5,3,2])
-h.HEAPSORT()
-h.PRINT()
-module.exports.HEAP = HEAP;
+// var h = new HEAP([6,4,5,3,2,1,7,9,4,5,3,2])
+// h.HEAPSORT()
+// h.PRINT()
+module.exports.HEAP = HEAP
