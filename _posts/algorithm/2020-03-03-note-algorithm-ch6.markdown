@@ -45,6 +45,8 @@ categories:
   .c EXTRACT-MAX实现，复杂度：$O(\log_d(n))$     
   .d INSERT实现，复杂度：$O(\log_d(n))$ 
 
+
 {% highlight javascript %}
   {% include_relative src/ch6/p6.2-heapD.js %}
 {% endhighlight %}
+
