@@ -47,6 +47,6 @@ categories:
 
 
 {% highlight javascript %}
-  {% include_relative src/ch6/p6.2-heapD.js %}
+  {% include_relative src/ch6/p6.2_heapD.js %}
 {% endhighlight %}
 
