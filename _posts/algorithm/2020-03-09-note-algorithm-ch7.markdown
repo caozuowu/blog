@@ -14,7 +14,7 @@ categories:
  * PARTITION：把最后一个元素作为中间点并重新排列数组,复杂度 $Θ(n)$
 
 {% highlight javascript %}
-  {% include_relative src/ch7/quick_sort.js %}
+  {% include_relative src/ch7/quick-sort.js %}
 {% endhighlight %}
 
 #### 性能
