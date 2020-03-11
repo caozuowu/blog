@@ -5,7 +5,7 @@ class stack{
         this.top = -1
     }
 
-    ENPYT(){
+    EMPYT(){
         return this.top == -1
     }
 
