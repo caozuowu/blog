@@ -26,6 +26,19 @@ function QUICKSORT(A, p, r){
     }
 }
 
-var A = [2,3,1,5,6,2,7,4]
-QUICKSORT(A,0,A.length-1)
-console.log(A)
+// var A = [2,3,1,5,6,2,7,4]
+// QUICKSORT(A,0,A.length-1)
+// console.log(A)
+
+function RANDOM_PARTITION(A, p, r) {
+    var i = Math.floor(Math.random() * (r - p) ) + p;
+    var key = A[i]
+    A[i] = A[A.length-1]
+    A[A.length-1] = key
+    return PARTITION(A, p, r)
+}
+
+module.exports = {
+    RANDOM_PARTITION: RANDOM_PARTITION
+}
+
