@@ -18,6 +18,12 @@ categories:
 
  * 队列
 
- {% highlight javascript %}
+{% highlight javascript %}
     {% include_relative src/ch10/queue.js %}
+{% endhighlight %}
+
+  * 链表
+
+{% highlight javascript %}
+    {% include_relative src/ch10/list.js %}
 {% endhighlight %}
