@@ -8,8 +8,15 @@ categories:
   - algorithm 
 ---
 
-#### 搜索树
+#### 二叉搜索树
+  * 任意右节点大于等于跟左节点或者根节点
+  * WALK遍历二叉树需要 $Θ(n)$时间
 
+#### 查询
+  * SEARCH运行时间 $O(h)$,h为树高
+  * MINIMUN 找最小 $O(h)$
+  * MAXIMUN 找最大 $O(h)$
+  * SUCCESSOR 找后继，大于x节点的最小关键字的节点，可能在x右子树中也可能在x父层中 $O(h)$
 {% highlight javascript %}
     {% include_relative src/ch12/inorder-tree.js %}
 {% endhighlight %}

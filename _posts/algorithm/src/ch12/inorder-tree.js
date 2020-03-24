@@ -61,6 +61,55 @@ class INORDER_TREE{
             y.right = z
         }
     }
+
+    SEARCH(x, k){
+        if (!x || x.key == key) {
+            return x
+        }
+        if (k < x.left.key) {
+            return this.SEARCH(x.left, k)
+        }else {
+            return this.SEARCH(x.right, k)
+        }
+    }
+
+    ITERATIVE_SEARCH(k){
+        var x = this.root
+        while (x && k != x.key) {
+            if (k < x.key) {
+                x = x.left
+            }else {
+                x = x.right
+            }
+        }
+        return x
+    }
+
+    MINIMUN(x){
+        while (x.left) {
+            x = x.left
+        }
+        return x
+    }
+
+    MAXINUM(x){
+        while (x.right) {
+            x = x.right
+        }
+        return x
+    }
+
+    SUCCESSOR(x){
+        if (x.right) {
+            return this.MINIMUN(x.right)
+        }
+        var y = x.parent
+        while (y && x == y.right) {
+            x = y
+            y = y.p
+        }
+        return y
+    }
 }
 
 var t = new INORDER_TREE([2,1,3,2,4,5,7,5,3,2])
