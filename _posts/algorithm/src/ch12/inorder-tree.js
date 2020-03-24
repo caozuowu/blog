@@ -39,10 +39,11 @@ class INORDER_TREE{
         console.log(result)
     }
 
+    //插入 不会断开已经存在的链，只会插入到深处的叶子上，会自动判断左右
     INSERT(z){
-        //y保存游标用来确定parent x用来遍历
         var y = undefined 
         var x = this.root
+        //x保存选择到的位置，y保存选择到的位置的父节点用来方便插入操作
         while (x != undefined) {
             y = x
             if (z.key < x.key) {
@@ -59,6 +60,37 @@ class INORDER_TREE{
             y.left = z
         }else {
             y.right = z
+        }
+    }
+
+    TRANSPLANT(u, v){
+        if (!u.parent) {
+            this.root = v
+        }else if (u == u.parent.left){
+            u.parent.left = v
+        }else {
+            u.parent.right = v
+        }
+        if (u) {
+            v.parent = u.parent
+        }
+    }
+
+    DELETE(z){
+        if (!z.left) {
+            this.TRANSPLANT(z, z.right)
+        }else if (!z.right) {
+            this.TRANSPLANT(z, z.left)
+        }else {
+            var y = this.MINIMUN(z.right)
+            if (y.parent != z) {
+                this.TRANSPLANT(y, y.right)
+                y.right = z.right
+                y.right.parent = y
+            }
+            this.TRANSPLANT(z, y)
+            y.left = z.left
+            y.left.parent = y
         }
     }
 
