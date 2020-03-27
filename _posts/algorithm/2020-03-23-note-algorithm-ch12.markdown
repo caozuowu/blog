@@ -23,7 +23,8 @@ categories:
  * 删除：如果删除节点有两个孩子则需要查找后继节点，然后用后继节点代替，让原来的右子树部分为新右子树，左子树不变 $O(h)$
 
 #### 随机构建二叉搜索树
-
+ * n个元素的二叉搜索树的期望高度为$O(\lg(n))$
+ 
 {% highlight javascript %}
     {% include_relative src/ch12/inorder-tree.js %}
 {% endhighlight %}
