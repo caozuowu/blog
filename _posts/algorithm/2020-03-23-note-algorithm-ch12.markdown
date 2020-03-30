@@ -26,5 +26,5 @@ categories:
  * n个元素的二叉搜索树的期望高度为$O(\lg(n))$
  
 {% highlight javascript %}
-    {% include_relative src/ch12/inorder-tree.js %}
+    {% include_relative src/ch12_inorder_tree.js %}
 {% endhighlight %}

@@ -19,5 +19,5 @@ function RANDOMIZED_SELECT(A, p, r, i){
     }
 }
 
-var A = [2,3,1,5,6,2,7,4]
-var k = RANDOMIZED_SELECT(A, 0, A.length-1, 4)
+// var A = [2,3,1,5,6,2,7,4]
+// var k = RANDOMIZED_SELECT(A, 0, A.length-1, 4)

@@ -1,6 +1,7 @@
 
 
 class INORDER_TREE{
+
     constructor(A = []){
         this.root = undefined
         for(var i = 0; i < A.length; i++) {
@@ -19,7 +20,9 @@ class INORDER_TREE{
 
     PRINT(){
         var queue = []
-        queue.push(this.root)
+        if (this.root) {
+            queue.push(this.root)
+        }
         var result = ""
         while (queue.length != 0) {
             var size = queue.length
@@ -144,5 +147,9 @@ class INORDER_TREE{
     }
 }
 
-var t = new INORDER_TREE([2,1,3,2,4,5,7,5,3,2])
-t.PRINT()
+// var t = new INORDER_TREE([2,1,3,2,4,5,7,5,3,2])
+// t.PRINT()
+
+module.exports = {
+    INORDER_TREE: INORDER_TREE
+}
