@@ -2,7 +2,7 @@
 
 .MathJax{
     outline:0;
-    overflow: scroll;
+    // overflow: scroll;
 }
 
 .MathJax span{
@@ -13,6 +13,8 @@
 
 .MathJax_Display{
     // overflow-x:auto;overflow-y:hidden;
-    overflow: scroll;
+    // overflow: scroll;
     // background-color: crimson;
+    overflow-x:auto;
+    overflow-y:hidden;
 }

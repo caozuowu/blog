@@ -43,3 +43,14 @@ categories:
 
 ### 动态规划原理
  * 如果一个问题的最优解包含其子问题的最优解则此问题具有最有子结构性质
+ * 子问题空间必须足够小
+
+#### 最长公共子序列 LCS
+ * 分析总结：如果两个序列Xm.Yn最后一位相等，则公共子序列Zk的前k-1序列是Xm-1和Yn-1的LCS，如果两个最后一位不相等,那公共Z是Xm-1和Y的一个LCS或者是X和Yn-1的LCS，Z最后一位和谁相等
+ * $O(m+n)$
+
+    $$c[i,j] = \begin{cases} 0 & {i = 0 或 j = 0} \\ c[i-1,j-1] + 1 & {i,j > 0 且 x_i = y_i} \\ max(c[i,j-1], c[i-1,j]) & {i,j > 0 且 x_i \neq y_i} \end{cases}$$
+
+{% highlight javascript %}
+    {% include_relative src/ch15_lcs.js %}
+{% endhighlight %}
