@@ -58,4 +58,7 @@ categories:
 #### 练习
 ##### 15.4-5 设计一个$O(n^2)$时间的算法，求一个n个数的序列的最长单调递增子序列
  * 前n个序列的单调递增子序列加上n+1 位置的数字如果是递增则新的最长为这个，否则为前n个的
- * 一开始为n=0的序列 
+
+{% highlight javascript %}
+    {% include_relative src/ch15_p15_4_5_lis.js %}
+{% endhighlight %}
