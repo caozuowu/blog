@@ -62,3 +62,5 @@ categories:
 {% highlight javascript %}
     {% include_relative src/ch15_p15_4_5_lis.js %}
 {% endhighlight %}
+
+##### 15-2 最长回文子序列
