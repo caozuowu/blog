@@ -17,7 +17,7 @@ categories:
  * 长度为n的钢条切割成i段收益最大
  * 递归实现，最大为前i个和后面搜索 (n-i)个最大解(从i开始在重复递归搜索)之和
 {% highlight javascript %}
-    {% include_relative src/ch15_cut_rod.js %}
+    {% include_relative src/ch15/ch15_cut_rod.js %}
 {% endhighlight %}
  * 对于n 有 $2^n-1 种分割方法，T(cut) = T(2^n)$
 
@@ -26,19 +26,19 @@ categories:
  * 带备忘自顶向下 保存每个子问题的解，重复的时候直接读取这个解 $O(n^2)$
 
 {% highlight javascript %}
-    {% include_relative src/ch15_memoized_cut_rod.js %}
+    {% include_relative src/ch15/ch15_memoized_cut_rod.js %}
 {% endhighlight %}
 
  * 自底向上，子问题按规模排序，按照从小到大顺序求解，遇到比自己小的子问题时候直接读取已经算出的解 $O(n^2)$
 
 {% highlight javascript %}
-    {% include_relative src/ch15_bottomup_cut_rod.js %}
+    {% include_relative src/ch15/ch15_bottomup_cut_rod.js %}
 {% endhighlight %}
 
 #### 保存最优解分割方法
 
 {% highlight javascript %}
-    {% include_relative src/ch15_print_cut_rod_solution.js %}
+    {% include_relative src/ch15/ch15_print_cut_rod_solution.js %}
 {% endhighlight %}
 
 ### 动态规划原理
@@ -52,7 +52,7 @@ categories:
     $$c[i,j] = \begin{cases} 0 & {i = 0 或 j = 0} \\ c[i-1,j-1] + 1 & {i,j > 0 且 x_i = y_i} \\ max(c[i,j-1], c[i-1,j]) & {i,j > 0 且 x_i \neq y_i} \end{cases}$$
 
 {% highlight javascript %}
-    {% include_relative src/ch15_lcs.js %}
+    {% include_relative src/ch15/ch15_lcs.js %}
 {% endhighlight %}
 
 #### 练习
@@ -60,7 +60,11 @@ categories:
  * 前n个序列的单调递增子序列加上n+1 位置的数字如果是递增则新的最长为这个，否则为前n个的
 
 {% highlight javascript %}
-    {% include_relative src/ch15_p15_4_5_lis.js %}
+    {% include_relative src/ch15/ch15_p15_4_5_lis.js %}
 {% endhighlight %}
 
 ##### 15-2 最长回文子序列
+
+{% highlight javascript %}
+    {% include_relative src/ch15/ch15_p15_2_lhs.js %}
+{% endhighlight %}

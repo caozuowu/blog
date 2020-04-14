@@ -1,6 +1,6 @@
 class Table extends Array{
 
-    constructor(nr = 0, nc = 0){
+    constructor(nr = 0, nc = 0, dv = 0){
 
         super(nr)
 
@@ -9,11 +9,12 @@ class Table extends Array{
         
         for (var i = 0; i < this.nr; i++) {
             this[i] = new Array(this.nc)
+            for (var j = 0; j < this[i].length; j++) {
+                this[i][j] = dv
+            }
         }
 
     }
-
-
 
     print(){
         console.log('------')
