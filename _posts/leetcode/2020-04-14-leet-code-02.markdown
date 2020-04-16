@@ -1,0 +1,15 @@
+---
+layout: post
+author: zuowu
+date:   2020-04-16 14:14:00 +0800
+linkname: '最长回文子序列'
+title:  "最长回文子序列"
+categories: 
+  - leetcode 
+---
+
+ * 动态规划
+
+```javascript
+
+```
