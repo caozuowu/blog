@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 680px;
+            height: fit-content;
+            background-color: white;
+            color: black;
+            border: 1px rgba(0, 0, 0, 0.4) solid;
+            box-sizing: border-box;
+            display: flex;
+            padding: 1rem;
+            flex-direction: column;
+            white-space: pre-line;
+            font-size: 0.9rem;
+        }
+
+
+        /*移动设备*/
+        @media screen and (max-device-width:680px) {
+            body {
+                width: 98vw;
+            }
+        }
+
+        header {
+            display: flex;
+            min-height: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px black solid;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        header .name {
+            background-color: black;
+            color: white;
+            font-size: 1.2rem;
+            height: auto;
+            padding: 1rem 5rem 1rem 1rem;
+            line-height: 1;
+        }
+
+        body .message {
+            display: flex;
+            min-height: 1rem;
+            /* padding: 0.5rem; */
+            padding: 0.5rem 0 0.5rem 0;
+            border-bottom: 2px black solid;
+            flex-direction: column;
+        }
+
+        .message .title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .message .content {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 0.5rem;
+        }
+
+        .message .content .dot{
+            width: 0.4rem;
+            height: 0.4rem;
+            border-radius: 0.2rem;
+            background-color: black;
+
+            flex-shrink: 0;
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+        }
+        .message .content .text{
+            line-height: 1;
+        }
+
+        footer {
+            background-color: red;
+            height: fit-content;
+            box-sizing: border-box;
+            margin-top: 1rem;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-self: start;
+            font-size: 1rem;
+            line-height: 1.2;
+        }
+
+        footer a {
+            color: black;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<header>
+    <div class="name">{{name}}</div>
+    <div style="display: flex; flex-direction: column; justify-content: space-evenly; align-items: flex-end;">
+        <div v-for='item in info'>{{item}}</div>
+    </div>
+</header>
+
+<body>
+    <div id='body'>
+
+        <div class='message'>
+            <div class='title'>{{evaluation.title}}</div>
+            <div class='content' v-for='item in evaluation.content'>
+                <div class='dot'></div>
+                <div class='text'>{{item}}</div>
+            </div>
+        </div>
+
+        <div class='message'>
+            <div class='title'>{{experince.title}}</div>
+            <div style="margin-bottom: 0.5rem;" v-for='item in experince.items'>
+                <div style="display: flex;flex-direction: row; justify-content: space-between; font-weight: bold; margin-bottom: 0.5rem;">
+                    <div>{{item.company}} | {{item.position}}</div>
+                    <div style="margin-right: 0.5rem;">{{item.duration}}</div>
+                </div>
+                <div class='content' v-for='line of item.content'>
+                    <div class='dot'></div>
+                    <div class='text'>{{line}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class='message'>
+            <div class='title'>{{project.title}}</div>
+            <div class='content' v-for='item in project.items'>
+                <div class='dot'></div>
+                <div class='text'>{{item}}</div>
+            </div>
+        </div>
+
+        <div class='message'>
+            <div class='title'>{{experties.title}}</div>
+            <div class='content' v-for='item in experties.items'>
+                <div class='dot'></div>
+                <div class='text'>{{item}}</div>
+            </div>
+        </div>
+
+        <div class='message'>
+            <div class='title'>{{eduaction.title}}</div>
+            <div class='content' v-for='item in eduaction.items'>
+                <div class='dot'></div>
+                <div class='text'>{{item}}</div>
+            </div>
+        </div>
+   
+    </div>
+</body>
+
+<footer>
+    <a href='https://caozuowu.github.io/blog/'>blog -- https://caozuowu.github.io/blog/</a>
+    <a href="https://github.com/caozuowu">github -- https://github.com/caozuowu</a>
+</footer>
+
+<script>
+    
+    var header = new Vue({
+        el: "header",
+        data: {
+            name: "Zuowu Cao \n Beijing IOS Engineer",
+            info: [
+                'TEL：18920162556',
+                'Email: 376604661@qq.com',
+                'Wechat: caozuowuofwechat'
+            ]
+        },
+        methods: {
+       
+        }
+    })
+
+    var body = new Vue({
+        el: '#body',
+        data: {
+            evaluation : {
+                title: "Self evaluation",
+                content: [
+                    '7 years of IOS development engineer, master a variety of programming languages, design patterns and object-oriented programming ideas. Large scale mobile application and game development experience and architecture capability',
+                    'Master the commonly used UI, network, data persistence and third-party SDK of IOS, understand the principle of Objective-C runtime, master the development process from App store to online, internal purchase, push and other development processes',
+                    'have a good command of computer-based knowledge, have studied complete algorithm theory, and master the use of basic data structure',
+                    'Master relevant knowledge of cocos2d-x game engine and OpenGL graphics, project management experience of small team, iteration experience of project version, maintenance and feedback in the later stage of project launch',
+                    'Be able to adapt to high-intensity work, have patience and perseverance, have strong crisis handling ability, strong communication ability, work attitude hard and conscientious, can quickly integrate into the new environment'
+                ]
+            },
+            experince: {
+                title: "Work experience",
+                items:[
+                    {
+                        company:'Sina Weibo',
+                        duration:"2018.12 - now ",
+                        position:"iOS Engineer",
+                        content: [
+                            'Weibo iOS client development, online, maintenance and other work',
+                            'Summarize business technology of the Department and participate in technical discussion and technical upgrading activities',
+                            'Participate in the formulation of technical specifications and development process',
+                            'Develop relevant wechat and weibo micro-program',
+                            'Responsible for the development of weibo micro-program API and UI components'
+                        ]
+                    },                   
+                    {
+                        company:'Huai(Beijing) Technology Co., Ltd',
+                        duration:"2017.3 - 2018.1",
+                        position:"Client Plantform Engineer",
+                        content: [
+                        'develop technical proposal, write engineering code, code review',
+                        'some functional module architecture and technology sharing',
+                        'participate in project initiation discussion and technical analysis',
+                        'develop some tools and software for internal use of the company',
+                        'make project development progress and schedule and follow up feedback'
+                        ]
+                    },
+                    {
+                        company:'Beijing aileyou Culture Development Co., Ltd',
+                        duration:"2014.10 - 2016.12",
+                        position:"iOS Engineer",
+                        content: [
+                            'design game functions and develop development schedule according to requirements, plan function development tasks, assign and accept',
+                            'technical communication with the demander and partners, integration of partners SDK and development of relevant functions',
+                            'manage the migration and development of overseas version of the game, track and report the progress of the project, participate in code writing and review the code',
+                            "International performance development, overseas language adaptation and resource adaptation, functional development of actual regional operation demand",
+                            "Submit the final client version and pack it to go online, sort out the online feedback problems, conduct technical analysis and modify it ",
+                            'write technical documents and develop some tools and software for internal use of the company',
+                            'complete the preparation of project development documents and report the development progress'
+                        ]
+                    },
+                    {
+                        company:'Tianjin Chengtong Communication Development Co., Ltd',
+                        duration:"2010.12 - 2012.12",
+                        position:"software engineer",
+                        content: [
+                        'understand the working environment and company business during the internship',
+                        'develop the company\'s communication engineering budget software',
+                        'develop some functions of company publicity page'
+                        ]
+                    }
+                ]
+            },
+            project:{
+                title: 'Project',
+                items: [
+                    "Weibo client: development of value-added services (Payment Finance, points mall, small game) in Weibo client",
+                    "Weibo and wechat micro-progrom: microblog related social and financial function applets and Weibo wandering application applets development on wechat platform",
+                    "Yizhibo live broadcast: a live broadcast platform under Weibo, mainly engaged in business UI development as project support",
+                    "Huai - Hu Lai three kindom: Huai online strategic mobile games, Android and IOS development, responsible for the role part, including relevant data model development, network access and local storage and interface development",
+                    "thunder fighter (domestic & Overseas): a mobile game produced by airgame in 2014 is represented by Tencent in China and several companies overseas. Served as the domestic version battle and internal purchase development, and the overseas version was responsible for managing the overseas migration team to carry out localization program migration development for each country"
+                ]
+            },
+            experties:{
+                title: 'Ability',
+                items: [
+                    "Programming: C, OC, python, JavaScript, XML, JSON, CSS, C + +",
+                    "IOS: common SDK, UI, thread, HTTP, animation, I / O, internal purchase, App Store listing process, basic architecture of IOS and mobile application, wechat micro-program development on mobile side",
+                    "Games & Images: cocos2d, OpenGL",
+                    "Foundation: common algorithms & data structure, algorithm analysis, common software design pattern, agent, notification, OOP",
+                ]
+            },
+            eduaction: {
+                title: 'Education',
+                items: [
+                    '2006.10-2010.7 undergraduate communication engineering of Yangtze University 𞓜 fundamentals of computer programming, C language programming, C + + programming, communication principles, Advanced Mathematics A, linear algebra',
+                    '2003.10-2006.7 senior high school, No.1 middle school, Yangcun, Wuqing District, Tianjin city'
+                ]
+            }
+            
+        },
+        methods: {
+        }
+    })
+</script>
+
+</html>
+
+
+
+
+
+
