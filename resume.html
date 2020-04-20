@@ -101,9 +101,9 @@
 </head>
 
 <header>
-    <div class="name">{{name}}</div>
+    <div class="name">{{language.name}}</div>
     <div style="display: flex; flex-direction: column; justify-content: space-evenly; align-items: flex-end;">
-        <div v-for='item in info'>{{item}}</div>
+        <div v-for='item in language.info'>{{item}}</div>
     </div>
 </header>
 
@@ -111,16 +111,16 @@
     <div id='body'>
 
         <div class='message'>
-            <div class='title'>{{evaluation.title}}</div>
-            <div class='content' v-for='item in evaluation.content'>
+            <div class='title'>{{language.evaluation.title}}</div>
+            <div class='content' v-for='item in language.evaluation.content'>
                 <div class='dot'></div>
                 <div class='text'>{{item}}</div>
             </div>
         </div>
 
         <div class='message'>
-            <div class='title'>{{experince.title}}</div>
-            <div style="margin-bottom: 0.5rem;" v-for='item in experince.items'>
+            <div class='title'>{{language.experince.title}}</div>
+            <div style="margin-bottom: 0.5rem;" v-for='item in language.experince.items'>
                 <div style="display: flex;flex-direction: row; justify-content: space-between; font-weight: bold; margin-bottom: 0.5rem;">
                     <div>{{item.company}} | {{item.position}}</div>
                     <div style="margin-right: 0.5rem;">{{item.duration}}</div>
@@ -133,24 +133,24 @@
         </div>
 
         <div class='message'>
-            <div class='title'>{{project.title}}</div>
-            <div class='content' v-for='item in project.items'>
+            <div class='title'>{{language.project.title}}</div>
+            <div class='content' v-for='item in language.project.items'>
                 <div class='dot'></div>
                 <div class='text'>{{item}}</div>
             </div>
         </div>
 
         <div class='message'>
-            <div class='title'>{{experties.title}}</div>
-            <div class='content' v-for='item in experties.items'>
+            <div class='title'>{{language.experties.title}}</div>
+            <div class='content' v-for='item in language.experties.items'>
                 <div class='dot'></div>
                 <div class='text'>{{item}}</div>
             </div>
         </div>
 
         <div class='message'>
-            <div class='title'>{{eduaction.title}}</div>
-            <div class='content' v-for='item in eduaction.items'>
+            <div class='title'>{{language.eduaction.title}}</div>
+            <div class='content' v-for='item in language.eduaction.items'>
                 <div class='dot'></div>
                 <div class='text'>{{item}}</div>
             </div>
@@ -165,25 +165,47 @@
 </footer>
 
 <script>
-    
-    var header = new Vue({
-        el: "header",
-        data: {
-            name: "Zuowu Cao \n Beijing IOS Engineer",
+
+    var header_language = {
+        en : {
+            name: "曹作武 \n 北京 海淀 iOS开发",
             info: [
-                'TEL：18920162556',
+                '电话：18920162556',
                 'Email: 376604661@qq.com',
                 'Wechat: caozuowuofwechat'
             ]
         },
-        methods: {
-       
+        cn : {
+            name: "曹作武 \n 北京 海淀 iOS开发",
+            info: [
+                '电话：18920162556',
+                'Email: 376604661@qq.com',
+                'Wechat: caozuowuofwechat'
+            ]
         }
+    }
+
+    var header = new Vue({
+        el: "header",
+        data: {
+            language: header_language.en
+        },
+        created(){
+            var _this = this;
+            window.onload = (e) => {
+                console.log('123');
+            }
+        },
+     
+        methods: {
+           language(e) {
+               this.data.language = header_language[e]
+           }
+        },
     })
 
-    var body = new Vue({
-        el: '#body',
-        data: {
+    var body_language = {
+        en : {
             evaluation : {
                 title: "Self evaluation",
                 content: [
@@ -273,9 +295,110 @@
                     '2003.10-2006.7 senior high school, No.1 middle school, Yangcun, Wuqing District, Tianjin city'
                 ]
             }
-            
+        },
+        cn : {
+            evaluation : {
+                title: "自我评价",
+                content: [
+                    '7年iOS开发工程师,掌握多种程序设计语言、设计模式以及面向对象程序设计思想。有大型手机应用和游戏开发经验及架构能力',
+                    '掌握 iOS 常用UI、网络、数据持久化和第三方SDK，了解 Objective-C 运行时原理，掌握AppStore开发到上线流程以及内购、推送等开发流程',
+                    '对计算机基相关知识有较好掌握，学习过完整的算法理论，掌握基本数据结构的使用',
+                    '掌握cocos2d-x游戏引擎以及openGL图形学相关知识，拥有小型团队项目管理经验，拥有项目版本迭代经验以及项目上线后期维护和反馈',
+                    '能适应高强度工作，有耐心有毅力，有较强的危机处理能力，沟通能力强，工作态度努力认真，能快速融入新的环境'
+                ]
+            },
+            experince: {
+                title: "工作经验",
+                items:[
+                    {
+                        company:'新浪微博',
+                        duration:"2018.12 - 今 ",
+                        position:"iOS 开发工程师",
+                        content: [
+                            '对微博客户端相关业务进行开发、上线、维护等工作',
+                            '对部门业务技术进行总结并参与技术讨论以及技术升级活动',
+                            '参与制定技术规范，开发流程',
+                            '负责开发相关微信小程序以及微博小程序',
+                            '负责开发微博为小程序API和UI组件'
+                        ]
+                    },
+                    {
+                        company:'互爱互动',
+                        duration:"2017.3 - 2018.1",
+                        position:"客户端开发工程师",
+                        content: [
+                            '制定技术方案，编写工程代码，代码审核',
+                            '一些功能模块架构以及技术分享',
+                            '参与项目立项讨论与技术分析',
+                            '开发一些公司内部使用的工具软件',
+                            '制定项目开发进度并做进度表并进行跟踪反馈'
+                        ]
+                    },
+                    {
+                        company:'北京爱乐游文化发展有限公司',
+                        duration:"2014.10 - 2016.12",
+                        position:"iOS 开发工程师",
+                        content: [
+                            '根据需求设计游戏功能实现技术类型并制定开发进度计划，规划功能开发任务并分配以及验收',
+                            '和需求方以及合作方进行技术沟通，整合合作方SDK以及制定第三方平台技术需求并实现',
+                            '管理海外版本游戏移植和开发工作，进行项目进度跟踪和汇报，参与代码编写，并对代码进行审核',
+                            '国际化性能开发，海外语言适配和资源适配，实际地区运营需求功能开发',
+                            '提交最终客户端版本并打包上线，对线上反馈问题进行整理和技术分析并进行修改',
+                            '编写技术文档，开发一些公司内部使用的工具软件',
+                            '完成项目开发文档的编写，汇报开发工作进展情况'
+                        ]
+                    },
+                    {
+                        company:'天津市城通通信发展有限公司',
+                        duration:"2010.12 - 2012.12",
+                        position:"软件工程师",
+                        content: [
+                            '实习期间了解工作环境与公司业务',
+                            '开发公司通信工程概预算软件',
+                            '开发公司宣传页面部分功能'
+                        ]
+                    }
+                ]
+            },
+            project:{
+                title: '项目',
+                items: [
+                    "微博客户端：微博客户端内增值业务(支付金融、积分商城、小游戏)开发",
+                    "微博、微信小程序：微博相关社交、金融功能小程序和微博流浪在微信平台上的应用小程序开发",
+                    "一直播：微博旗下直播平台，主要从事业务UI开发作为项目支援",
+                    "互爱-胡莱三国：互爱互动线上战略类手机游戏，android和iOS端开发，负责角色部分，包括相关数据模型制定，网络访问和本地存储以及界面开发",
+                    "爱乐游-雷霆战机(国内版&海外版)：爱乐游14年出品的飞行射击手机游戏，国内由腾讯代理，海外分别有多家公司代理。在其中担任国内版本战斗以及内购开发，海外版本负责管理海外移植团队对每个国家进行本土化程序移植开发"
+                ]
+            },
+            experties:{
+                title: '技能',
+                items: [
+                    "编程：C, OC, Python, Javascript, Xml, Json, Css, C++",
+                    "iOS：常用SDK, UI, 线程, HTTP, 动画, I/O, 内购, AppStore 上架流程, iOS 及移动应用基本架构, 移动端微信小程序开发",
+                    "游戏 & 图像：Cocos2d, OpenGL",
+                    "基础：常用算法&数据结构,算法分析，常用软件设计模式, 代理,通知,OOP",
+  
+                ]
+            },
+            eduaction: {
+                title: '教育经历',
+                items: [
+                    '2006.10-2010.7 本科 长江大学 通信工程 | 计算机编程基础、C语言程序设计、C++程序设计、通信原理、高等数学A、线性代数',
+                    '2003.10-2006.7 高中 天津市武清区杨村一中'
+                ]
+            }
+        }
+    }
+
+    var body = new Vue({
+        el: '#body',
+        data: {
+            language: body_language.en,
         },
         methods: {
+            language(e) {
+               this.data.language = body_language[e]
+           }
         }
     })
 </script>

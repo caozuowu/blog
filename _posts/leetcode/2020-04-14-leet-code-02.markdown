@@ -40,10 +40,10 @@ function find(s) {
                 // matching[i][j] = '↙'
                
             }else {
-                var right = mark[i+1][j]
+                var left = mark[i+1][j]
                 var down = mark[i][j-1]
-                mark[i][j] = Math.max(right, down)
-                matching[i][j] = right < down ? '←' : '↓'
+                mark[i][j] = Math.max(left, down)
+                matching[i][j] = left < down ? '←' : '↓'
 
             }
         }
