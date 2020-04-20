@@ -28,6 +28,12 @@
         }
 
         header {
+            /* display: flex;
+            min-height: 1rem;
+            padding-bottom: 0.5rem; */
+        }
+
+        body .info {
             display: flex;
             min-height: 1rem;
             padding-bottom: 0.5rem;
@@ -36,7 +42,7 @@
             justify-content: space-between;
         }
 
-        header .name {
+        body .info .name {
             background-color: black;
             color: white;
             font-size: 1.2rem;
@@ -48,7 +54,6 @@
         body .message {
             display: flex;
             min-height: 1rem;
-            /* padding: 0.5rem; */
             padding: 0.5rem 0 0.5rem 0;
             border-bottom: 2px black solid;
             flex-direction: column;
@@ -100,15 +105,19 @@
     </style>
 </head>
 
-<header>
-    <div class="name">{{language.name}}</div>
-    <div style="display: flex; flex-direction: column; justify-content: space-evenly; align-items: flex-end;">
-        <div v-for='item in language.info'>{{item}}</div>
-    </div>
-</header>
+
+<header></header>
 
 <body>
+
     <div id='body'>
+
+        <div class="info">
+            <div class="name">{{language.info.name}}</div>
+            <div style="display: flex; flex-direction: column; justify-content: space-evenly; align-items: flex-end;">
+                <div v-for='item in language.info.contact'>{{item}}</div>
+            </div>
+        </div>
 
         <div class='message'>
             <div class='title'>{{language.evaluation.title}}</div>
@@ -166,46 +175,16 @@
 
 <script>
 
-    var header_language = {
-        en : {
-            name: "Zuowu Cao \n Beijing iOS Engineer",
-            info: [
-                'TEL：18920162556',
-                'Email: 376604661@qq.com',
-                'Wechat: caozuowuofwechat'
-            ]
-        },
-        cn : {
-            name: "曹作武 \n 北京 海淀 iOS开发",
-            info: [
-                '电话：18920162556',
-                'Email: 376604661@qq.com',
-                'Wechat: caozuowuofwechat'
-            ]
-        }
-    }
-
-    var header = new Vue({
-        el: "header",
-        data: {
-            language: header_language.en
-        },
-        created(){
-            var _this = this;
-            window.onload = (e) => {
-                console.log('123');
-            }
-        },
-     
-        methods: {
-           language(e) {
-               this.data.language = header_language[e]
-           }
-        },
-    })
-
     var body_language = {
         en : {
+            info:{
+                name:'Zuowu Cao \n Beijing iOS Engineer',
+                contact:[
+                    'TEL：18920162556',
+                    'Email: 376604661@qq.com',
+                    'Wechat: caozuowuofwechat'
+                ]
+            },
             evaluation : {
                 title: "Self evaluation",
                 content: [
@@ -297,6 +276,14 @@
             }
         },
         cn : {
+            info:{
+                name:'曹作武 \n 北京海淀 iOS 工程师',
+                contact:[
+                    'TEL：18920162556',
+                    'Email: 376604661@qq.com',
+                    'Wechat: caozuowuofwechat'
+                ]
+            },
             evaluation : {
                 title: "自我评价",
                 content: [
@@ -395,12 +382,22 @@
         data: {
             language: body_language.en,
         },
+        created(){
+            var _this = this;
+            window.onload = (e) => {
+                var type = e.target.location.search
+                console.log(type)
+                // this.language = body_language.cn
+            }
+        },
         methods: {
             language(e) {
                this.data.language = body_language[e]
            }
         }
     })
+
+
 </script>
 
 </html>
