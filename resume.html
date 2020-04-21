@@ -42,6 +42,14 @@
             justify-content: space-between;
         }
 
+        body .info .avata {
+            height: 100%;
+            width: aspect-ratio(1/1);
+            aspect-ratio: calc(1/1);
+            background-color: lightblue;
+
+        }
+
         body .info .name {
             background-color: black;
             color: white;
@@ -113,6 +121,7 @@
     <div id='body'>
 
         <div class="info">
+            <div class="avata">avata</div>
             <div class="name">{{language.info.name}}</div>
             <div style="display: flex; flex-direction: column; justify-content: space-evenly; align-items: flex-end;">
                 <div v-for='item in language.info.contact'>{{item}}</div>
@@ -386,6 +395,8 @@
             var _this = this;
             window.onload = (e) => {
                 var type = e.target.location.search
+                // type.shift()
+                console.log(e)
                 console.log(type)
                 // this.language = body_language.cn
             }

@@ -6,6 +6,7 @@ function RANDOMIZED_SELECT(A, p, r, i){
     if (p == r) {
         return A[p]
     }
+
     var q = RANDOM_PARTITION(A, p, r)
     //q 把数组分为大于q和小于q的两部分,则q前面有k=q-p个小于q的,所以对用k和i比较即可
     k = q - p + 1
