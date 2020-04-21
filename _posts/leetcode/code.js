@@ -1,80 +1,37 @@
-//最长回文子串
+/*
+
+L EET C ODE I SHI R ING
+
+L   C   I   R
+E T O E S I I G
+E   D   H   N
+
+LEETCODEISHIRING
+
+LECD
+ETOE
+
+L EETCO D EISHI R ING
+
+L     D     R
+E   O E   I I
+E C   I H   N
+T     S     G
+
+
+*/
+
+var s = 'LEETCODEISHIRING'
+
 function find(s) {
-
-  var mark = []
-  var matching = []
-  for (var i = 0; i < s.length; i++) {
-
-    mark.push(new Array(s.length))
-    matching.push(new Array(s.length))
-  
-    mark[i][i] = 1
-    matching[i][i] = 1
-  }
-
-  for (var l = 1; l < s.length; l++) {
-    for (var i = 0; i < s.length - l; i++) {
-      var j = i + l
-      // console.log(i, j)
-      if (s[i] == s[j]) {
-        if (j == i+1) {
-          mark[i][j] = 2
-        }else {
-          mark[i][j] = mark[i+1][j-1] + 2
-        }
-        matching[i][j] = '↙'
-      }else {
-        var left = mark[i+1][j]
-        var down = mark[i][j-1]
-        mark[i][j] = Math.max(left, down)
-        matching[i][j] = left < down ? '←' : '↓'
-      }
+  var h = 4
+  var j = 0
+  for (var x = 0; x < s.length; x++) {
+    // console.log(x%4)
+    if (x%4 == 0) {
+      console.log(x, s[x])
     }
   }
-
-  for (var line of mark) {
-    var str = ''
-    for (var c of line) {
-      str += (c || ' ') + ' '
-    }
-    console.log(str)
-  }
-
-  for (var line of matching) {
-    var str = ''
-    for (var c of line) {
-      str += (c || ' ') + ' '
-    }
-    console.log(str)
-  }
-
-  var i = 0
-  var j = matching[0].length - 1
-  var substr = ''
-
-  while (i <= j) {
-    if (matching[i][j] == '←') {
-      j--
-    }else if (matching[i][j] == '↓') {
-      i++
-    }else {
-      if (matching[i+1][j-1] == '↙' || j == i ) {
-        var t = substr.length/2
-        var head = substr.slice(0, t)
-        var tail = substr.slice(t, substr.length)
-        var middle = i == j ? s[i] : s[i] + s[j]
-        substr = head + middle + tail
-      }else {
-        substr = ''
-      }
-      
-      j--
-      i++
-    }
-  }
-
-  console.log(substr)
 }
 
-var s = 'character'
 find(s)
