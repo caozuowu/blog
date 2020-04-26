@@ -121,7 +121,6 @@
     <div id='body'>
 
         <div class="info">
-            <div class="avata">avata</div>
             <div class="name">{{language.info.name}}</div>
             <div style="display: flex; flex-direction: column; justify-content: space-evenly; align-items: flex-end;">
                 <div v-for='item in language.info.contact'>{{item}}</div>
@@ -398,7 +397,7 @@
                 // type.shift()
                 console.log(e)
                 console.log(type)
-                // this.language = body_language.cn
+                this.language = body_language.cn
             }
         },
         methods: {
