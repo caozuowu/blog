@@ -73,6 +73,42 @@ class Graph {
         
     }
 
+    //深度优先搜索
+    DFS(x) {
+
+        //所有顶点设为白色
+        for (var u in this.V) {
+            this.V[u].color = 'WHITE'
+            this.V[u].p = null
+        }
+
+        var time = 0
+
+        for (var u in this.V) {
+            if (this.V[u].color == 'WHITE') {
+                //对每一个节点进行深度搜索
+                VISIT(u, time)
+            }
+        }
+    
+        //深度搜索 如果发现白色子节点就一直搜索白色的直到没有搜索出白色为止然后将没有白色子节点的父节点染黑，然后递归回去
+        function VISIT(x, time) {
+            time = time + 1
+            this.V[x].d = time
+            this.V[x].color = 'GRAY'
+            for (var v in this.Adj[u]) {
+                if (this.V[v].color == 'WHITE') {
+                    v.p = u
+                    VISIT(v)
+                }
+            }
+            this.V[x].color = 'BLACK'
+            time = time + 1
+            //记录结束时间
+            this.V[x].f = time
+        }
+    }
+
     toString() {
         var s = ''
         for (var v in this.V) {
