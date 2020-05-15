@@ -1,6 +1,5 @@
 
 
-
 class Graph {
     constructor() {
         this.V = {}
@@ -126,17 +125,22 @@ class Graph {
     }
 }
 
-var g = new Graph()
+module.exports = {
+    Graph: Graph
+}
 
-for (var v of ['r','v','s','w','t','x','u','y']) {
-    g.addVertex(v)
-}
-for (var e of [['r','v'],['r','s'],['s','w'],['w','t'],['w','x'],['t','x'],['t','u'],['x','u'],['x','y'],['u','y']]){
-    g.addEdge(e[0],e[1])
-}
-g.print()
-g.BFS('s')
-g.PRINT_PATH('s', 'w')
+
+// var g = new Graph()
+
+// for (var v of ['r','v','s','w','t','x','u','y']) {
+//     g.addVertex(v)
+// }
+// for (var e of [['r','v'],['r','s'],['s','w'],['w','t'],['w','x'],['t','x'],['t','u'],['x','u'],['x','y'],['u','y']]){
+//     g.addEdge(e[0],e[1])
+// }
+// g.print()
+// g.BFS('s')
+// g.PRINT_PATH('s', 'w')
 
 /*
 r -> v s 

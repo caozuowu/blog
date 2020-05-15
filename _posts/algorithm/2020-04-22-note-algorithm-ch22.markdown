@@ -28,7 +28,7 @@ categories:
 
 
 {% highlight javascript %}
-    {% include_relative src/ch22/graph.js %}
+    {% include_relative src/p6/ch22_graph.js %}
 {% endhighlight %}
 
 ### 拓扑排序
