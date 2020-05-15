@@ -13,6 +13,12 @@ categories:
  * 能够连接所有的节点又拥有最小的权重（每条边都有权重，可以理解为距离）的生成树
  * 查找方法：贪心算法 设一个空集合（肯定属于最小生成树），然后每次往里面加一条安全边（安全边有自己的查找方法）
 
+#### 加权图
+
+{% highlight javascript %}
+    {% include_relative src/p6/ch23_weight_graph.js %}
+{% endhighlight %}
+
  ```
  生成树:
     A = 一个空集合
@@ -32,11 +38,14 @@ categories:
 #### Kruskal 算法
  * 先构造一个只含 n 个顶点，而边集为空的子图，若将该子图中各个顶点看成是各棵树上的根结点，则它是一个含有 n 棵树的一个森林。之后，从网的边集 E 中选取一条权值最小的边，若该条边的两个顶点分属不同的树，则将其加入子图，也就是说，将这两个顶点分别所在的两棵树合成一棵树；反之，若该条边的两个顶点已落在同一棵树上，则不可取，而应该取下一条权值最小的边再试之。依次类推，直至森林中只有一棵树，也即子图中含有 n-1条边为止
 
+{% highlight javascript %}
+    {% include_relative src/p6/ch23_kruskal.js %}
+{% endhighlight %}
 
 #### Prim 算法
 
  * 从一颗空树出发，每次查找到这棵树最近的不在这棵树上的点
 
 {% highlight javascript %}
-    {% include_relative src/p6/ch23_mst.js %}
+    {% include_relative src/p6/ch23_prim.js %}
 {% endhighlight %}

@@ -1,5 +1,4 @@
 
-
 class Graph {
     constructor() {
         this.V = {}
@@ -124,6 +123,7 @@ class Graph {
         console.log(this.toString())
     }
 }
+
 
 module.exports = {
     Graph: Graph
