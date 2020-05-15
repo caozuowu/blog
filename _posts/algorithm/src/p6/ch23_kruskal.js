@@ -1,6 +1,6 @@
 
 
-var WeightedGraph = require('./ch22_weight_graph').WeightedGraph
+var WeightedGraph = require('./ch23_weight_graph').WeightedGraph
 
 WeightedGraph.prototype.MST_KRUSKAL = function () {
     var A = []
