@@ -15,6 +15,15 @@ categories:
   [html配置html方法](https://www.linpx.com/p/front-end-integration-mathjaxjs-configuration.html)    
   [公式](https://www.jianshu.com/p/a7fa1ed4ca20)
 
+### cocoapds
+  * 卸载与安装    
+    `sudo gem uninstall cocoapods`    
+    `sudo gem install cocoapods -v 1.1.1`
+
+### mac环境变量相关    
+  * `source .bash_profile`    
+  * `echo $PATH`    
+
 ### name
  * 陈年薄荷
 
