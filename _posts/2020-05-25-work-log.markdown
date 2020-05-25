@@ -1,0 +1,39 @@
+---
+layout: post
+author: zuowu
+date:   2020-05-25 10:24:00 +0800
+linkname: 黑苹果记录
+categories: 
+  - home
+---
+#### 什么是EFI分区？
+
+EFI系统分区（ESP）是一个使用FAT32格式化的小分区，通常为100MB，其中存储已安装系统的EFI引导加载程序以及启动时固件使用的应用程序。如果您的硬盘驱动器初始化为GUID分区表（GPT）分区样式，它将在安装Windows或Mac操作系统（OS）后生成EFI系统分区。
+通常，您无法在文件资源管理器中查看它，因为它没有驱动器号。如果意外删除此分区，则会导致已安装的系统无法启动。因此，为了保护此分区，Windows不允许您轻松删除它。然而，有些人想要删除EFI分区。
+
+__EFI分区保存了硬件驱动，系统安装程序会从这个分区读取驱动， 内存，硬盘等关键设备不匹配或者不能驱动则进不去安装程序，声卡，网卡，显卡次之__
+
+#### Clover引导
+
+ Clover 四叶草是一款黑苹果系统引导工具,也称幸运草,包括PKG安装包、EFI文件夹(通过EFI文件夹生成mac efi分区?)
+ __一个运行在u盘里的程序，引导主板和cpu把mac系统安装到硬盘上，同时生成efi文件夹__
+
+#### 大体流程
+
+* 把Clover和macOS系统放到U盘(U盘格式化macOS格式，系统网上下载一般会包括macOS)
+* 把需要的驱动放到clover efi文件夹下用来生成驱动efi分区
+* 可以把电脑硬盘分出一个mac分区来安装(用分区工具，需要查看mac硬盘格式)，推荐用另一块硬盘安装
+* 重启，修改主板设置(不同主板和安装的系统可能不同，网上的教程里面有)
+* 自动引导安装(如果efi关键驱动不对，或者硬盘格式或者内存型号以及cup型号不支持则安装不了)
+
+#### 设备型号与驱动    
+##### 主板 华硕 ASUS ROG STRIX B360-I GAMING
+ * 板载声卡 : SupremeFX S1220A
+    * https://hackintosher.com/guides/fix-asus-supremefx-s1220a-hackintosh-audio/
+    * https://osx.cx/multibeast-v10-2-0-for-high-sierra.html
+ * 板载网卡 : Intel I219-V
+ * 板载wifi : Intel Wi-Fi 2x2 MU-MIMO 802.11AC 蓝牙 5.0
+    * 查看wifi网卡型号
+        * `cmd-systeminfo`: 01-有线,02-无线网卡
+    * [驱动工程https://github.com/ammulder/AppleIntelWiFiMVM](https://github.com/ammulder/AppleIntelWiFiMVM)
+ <!-- <p>https://github.com/vit9696/AppleALC/tree/master/Resources</p> -->
