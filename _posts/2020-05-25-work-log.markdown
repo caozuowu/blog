@@ -6,6 +6,7 @@ linkname: 黑苹果记录
 categories: 
   - home
 ---
+
 #### 什么是EFI分区？
 
 EFI系统分区（ESP）是一个使用FAT32格式化的小分区，通常为100MB，其中存储已安装系统的EFI引导加载程序以及启动时固件使用的应用程序。如果您的硬盘驱动器初始化为GUID分区表（GPT）分区样式，它将在安装Windows或Mac操作系统（OS）后生成EFI系统分区。
@@ -13,7 +14,7 @@ EFI系统分区（ESP）是一个使用FAT32格式化的小分区，通常为100
 
 __EFI分区保存了硬件驱动，系统安装程序会从这个分区读取驱动， 内存，硬盘等关键设备不匹配或者不能驱动则进不去安装程序，声卡，网卡，显卡次之__
 
-#### Clover引导
+#### Clover引导    
 
  Clover 四叶草是一款黑苹果系统引导工具,也称幸运草,包括PKG安装包、EFI文件夹(通过EFI文件夹生成mac efi分区?)
  __一个运行在u盘里的程序，引导主板和cpu把mac系统安装到硬盘上，同时生成efi文件夹__
@@ -34,6 +35,6 @@ __EFI分区保存了硬件驱动，系统安装程序会从这个分区读取驱
  * 板载网卡 : Intel I219-V
  * 板载wifi : Intel Wi-Fi 2x2 MU-MIMO 802.11AC 蓝牙 5.0
     * 查看wifi网卡型号
-        * `cmd-systeminfo`: 01-有线,02-无线网卡
+        * `cmd systeminfo` : 01-有线,02-无线网卡
     * [驱动工程https://github.com/ammulder/AppleIntelWiFiMVM](https://github.com/ammulder/AppleIntelWiFiMVM)
  <!-- <p>https://github.com/vit9696/AppleALC/tree/master/Resources</p> -->
