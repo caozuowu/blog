@@ -11,3 +11,5 @@ var INSERTION_SORT = function(A) {
         A[j+1] = key
     }
 }
+
+console.log("123")
