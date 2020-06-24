@@ -18,6 +18,9 @@ categories:
  * 重启 -> 长按 `command + R` 终端输入 `csrutil disable`
 
 
+ * [虚拟机开发:https://blog.csdn.net/tangsilian/article/details/93380007](https://blog.csdn.net/tangsilian/article/details/93380007)
+
+
 
 
 
