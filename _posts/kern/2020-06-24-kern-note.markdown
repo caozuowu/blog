@@ -1,0 +1,23 @@
+---
+layout: post
+author: zuowu
+date:   2020-04-24 21:33:00 +0800
+linkname: kern note
+categories: 
+  - home
+---
+
+#### `sudo kextload HelloWorld.kext` 失败
+
+ `
+ /Users/zuowu/Library/Developer/Xcode/DerivedData/HelloWorld-gukbvpaluplavybnegmkgqapydjv/Build/Products/Debug/HelloWorld.kext failed to load - (libkern/kext) not loadable (reason unspecified); check the system/kernel logs for errors or try kextutil(8).    
+ `
+
+ * iOS 11 之后苹果不允许第三方驱动扩展加载，需要__注册开发者证书签名扩展包__或者__重启关闭csrutil__,[链接:https://www.jianshu.com/p/f76bdfbc6779](https://www.jianshu.com/p/f76bdfbc6779)
+ * 查询csrutil状态: `csrutil status` , enable 为开启 disable 关闭可以加载
+ * 重启 -> 长按 `command + R` 终端输入 `csrutil disable`
+
+
+
+
+
