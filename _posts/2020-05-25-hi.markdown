@@ -2,7 +2,8 @@
 layout: post
 author: zuowu
 date:   2020-05-25 10:24:00 +0800
-linkname: 黑苹果记录
+linkname: Hackintosh
+title:  Hackintosh
 categories: 
   - home
 ---
