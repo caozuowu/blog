@@ -1,0 +1,113 @@
+---
+layout: post
+author: zuowu
+date:   2020-08-04 09:26:00 +0800
+linkname: 最长回文子串
+categories: 
+  - leetcode
+---
+
+给定一个字符串 s，找到 s 中最长的回文子串    
+示例 1：
+```
+输入: "babad"
+输出: "bab"
+注意: "aba" 也是一个有效答案。
+```
+示例 2：
+```
+输入: "cbbd"
+输出: "bb"
+```
+
+动态规划:    
+s[i+1:j-1] 是回文串，并且 s 的第 j 和 j 个字母相同 s[i][j]才是回文串,
+根据l长度遍历字符串查找
+时间复杂度$O(n^2)$
+空间复杂度$O(n^2)$ ， 存储二维数组
+
+```javascript
+
+var subString = function (s) {
+
+    var mark = [];
+    for (var i = 0; i < s.length; i ++) {
+        mark.push(new Array(s.length))
+    }
+
+    var result = "";
+
+    for (var l = 0; l < s.length; l++) {
+        for (var i = 0; i < s.length - l; i++) {
+            var j = i + l;
+            if (l == 0) {
+                mark[i][j] = true;
+            }else if (l == 1) {
+                mark[i][j] = s[i] == s[j];
+            }else {
+                mark[i][j] = mark[i+1][j-1] && (s[i] == s[j]);
+            }
+
+            if (mark[i][j] && l+1 > result.length) {
+                result = s.substring(i,j+1);
+            }
+        }
+    }
+
+    console.log(mark)
+    console.log(result)
+
+    return result;
+}
+
+subString("babad");
+
+```
+
+输出结果
+```
+
+[ [ true, false, true, false, false ],
+  [ <1 empty item>, true, false, true, false ],
+  [ <2 empty items>, true, false, false ],
+  [ <3 empty items>, true, false ],
+  [ <4 empty items>, true ] ]
+
+  bab
+```
+
+
+中心扩展法：    
+时间复杂度$O(n^2)$
+空间复杂度$O(n)$ 
+
+
+```javascript
+//传入中心点 一个 或者 两个 往两边查找
+var expandAroundCenter = function(s, left, right) {
+    while (left >=0 && right < s.length && s[left] == s[right]) {
+        left--;
+        right++;
+    }
+    return right-left-1;
+}
+
+var longestPalindrome = function(s) {
+    if (!s || s.length < 1) {
+        reutrn "";
+    }
+    var star = 0;
+    var end = 0;
+    for (var i = 0; i < s.length; i++) {
+        var l1 = expandAroundCenter(i, i);
+        var l2 = expandAroundCenter(i, i+1);
+        var len = Math.max(l1,l2);
+        //如果直接保存i 和 j 空间复杂度依然是n^2
+        if (len > end - star) {
+            star = i - (len-1)/2;
+            end = i + len/2;
+        }
+    }
+    return s.substring(start, end+1)
+}
+```

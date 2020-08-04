@@ -1,7 +1,7 @@
 ---
 layout: post
 author: zuowu
-date:   2020-06-29 11:38:00 +0800
+date:   2020-08-04 09:22:00 +0800
 linkname: 无重复字符的最长子串
 categories: 
   - leetcode
@@ -78,7 +78,7 @@ subString("dkneweknbhje");
 
 ```
 
-
+结果
 ```
 { '1': 'e',
   '2': 'je',
