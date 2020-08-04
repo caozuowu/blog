@@ -1,0 +1,65 @@
+---
+layout: post
+author: zuowu
+date:   2020-08-04 10:51:00 +0800
+linkname: z字变换
+categories: 
+  - leetcode
+---
+
+将一个给定字符串根据给定的行数，以从上往下、从左到右进行 Z 字形排列。
+比如输入字符串为 "LEETCODEISHIRING" 行数为 3 时，排列如下：   
+
+```
+L   C   I   R
+E T O E S I I G
+E   D   H   N
+```
+
+拐角处的位置和两边的位置可以计算出来...
+
+```javascript
+/**
+ * @param {string} s
+ * @param {number} numRows
+ * @return {string}
+ */
+var convert = function(s, numRows) {
+
+    if (numRows == 1) {
+        return s
+    }
+
+    var step = 2*numRows - 2
+    var strs = []
+    for (var i = 0; i < numRows; i++) {
+        strs.push('')
+    }
+
+    for (var x = 0; x < s.length; x += step) {
+        strs[0] += s[x]
+        var h = numRows-2
+        var bottom = x+numRows-1 
+        while (h!=0) {
+            var left = s[bottom - h]
+            var right = s[bottom + h]
+            if (left) {
+                strs[numRows-h-1] += left
+            }
+            if (right) {
+                strs[numRows-h-1] += right
+            }
+            h--
+        }
+        if (s[bottom]) {
+            strs[strs.length-1] += s[bottom]
+        }
+    }
+    var res = ''
+    for (var str of strs) {
+        res += str
+    }
+    console.log(res)
+    return res
+};
+```
