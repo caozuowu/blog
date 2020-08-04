@@ -1,0 +1,93 @@
+---
+layout: post
+author: zuowu
+date:   2020-08-04 14:15:00 +0800
+linkname: 整数转罗马数字
+categories: 
+  - leetcode
+---
+
+给定一个整数，将其转为罗马数字。输入确保在 1 到 3999 的范围内。
+
+
+|字符| 数值|
+|----|-----|
+|I   |    1|
+|V   |    5|
+|X   |   10|
+|L   |   50|
+|C   |  100|
+|D   |  500|
+|M   | 1000|
+
+
+
+通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 IIII，而是 IV。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 IX。这个特殊的规则只适用于以下六种情况：
+
+ * I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。
+ * X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。 
+ * C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
+
+
+示例 1:
+
+```
+输入: 58
+输出: "LVIII"
+解释: L = 50, V = 5, III = 3.
+```     
+
+示例 2:
+```
+输入: 1994
+输出: "MCMXCIV"
+解释: M = 1000, CM = 900, XC = 90, IV = 4.
+```
+
+
+贪心：    
+将给定的整数转换为罗马数字需要找到上述 13 个符号的序列，这些符号的对应值加起来就是整数。根据符号值，此序列必须按从大到小的顺序排列。为了表示一个给定的整数，我们寻找适合它的最大符号。我们减去它，然后寻找适合余数的最大符号，依此类推，直到余数为0。我们取出的每个符号都附加到输出的罗马数字字符串上。    
+__特例整合算作常例__
+
+时间复杂度:$O(1)$.由于有一组有限的罗马数字，循环可以迭代多少次有一个硬上限。因此，我们说时间复杂度是常数的     
+空间复杂度:$O(i)$.使用的内存量不会随输入整数的大小而改变，因此是常数的
+
+```javascript
+
+var mark = [
+    {value: 1000, symbol: "M"},
+    {value: 900,  symbol: "CM"},
+    {value: 500,  symbol: "D"},
+    {value: 400,  symbol: "CD"},
+    {value: 100,  symbol: "C"},
+    {value: 90,   symbol: "XC"},
+    {value: 50,   symbol: "L"},
+    {value: 40,   symbol: "XL"},
+    {value: 10,   symbol: "X"},
+    {value: 9,    symbol: "IX"},
+    {value: 5,    symbol: "V"},
+    {value: 4,    symbol: "IV"},
+    {value: 1,    symbol: "I"},
+]
+    
+var intToRoman = function(num) {
+    var result = "";
+    for (var i = 0; i < mark.length; i++) {
+        var value = mark[i].value
+        while (value <= num) {
+            num -= value;
+            result += mark[i].symbol
+        }
+    }
+    console.log(result)
+    return result;
+}
+
+intToRoman(1994)
+
+```
+
+输出
+```
+MCMXCIV
+```
