@@ -1,0 +1,84 @@
+---
+layout: post
+author: zuowu
+date:   2020-08-05 14:49:00 +0800
+linkname: 三数之和
+categories: 
+  - leetcode
+---
+
+给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有满足条件且不重复的三元组。
+
+注意：答案中不可以包含重复的三元组。
+
+示例：
+```
+给定数组 nums = [-1, 0, 1, 2, -1, -4]，
+
+满足要求的三元组集合为：
+[
+  [-1, 0, 1],
+  [-1, -1, 2]
+]
+```
+「不重复」的本质是什么    
+ * 第二重循环枚举到的元素不小于当前第一重循环枚举到的元素
+ * 第三重循环枚举到的元素不小于当前第二重循环枚举到的元素    
+
+要实现这一点，我们可以将数组中的元素从小到大进行排序，随后使用普通的三重循环就可以满足上面的要求,保证a<b<c,减少了重复
+
+可以发现，如果我们固定了前两重循环枚举到的元素时，由于 b′>b，那c′ 在数组中一定出现在 c 的左侧。也就是说，我们可以从小到大枚举 b，同时从大到小枚举 c
+c，即第二重循环和第三重循环实际上是并列的关系。    
+
+时间复杂度:$O(N^2)$    
+空间复杂度:$O(log(N))$
+
+```javascript
+var threeSum = function(nums){
+
+    var result = [];
+
+    nums.sort((a,b)=>{
+        return a>b
+    });
+    var n = nums.length;
+    for (var first = 0; first < n; first++) {
+        if (first > 0 && nums[first] == nums[first-1]) {
+            continue;
+        }
+        var target = -nums[first];
+        var third = n - 1;
+        //由于数组排序了所以不必要考虑数组中二重循环first之前的内容，直接从first开始遍历即可
+        for (var second = first + 1; second < n; second ++){
+            if (second > first + 1 && nums[second] == nums[second-1]){
+                continue;
+            }
+            //只有 第二个和第三个加起来大于第一个的相反数才考虑 如果小于不考虑 因为数组是排序的
+            //third要大于second 因为数组排好序了
+            while (second < third && nums[second] + nums[third] > target) {
+                third--;
+            }
+            //不能有重复元素
+            if (second == third) {
+                break;
+            }
+            if (nums[second] + nums[third] == target) {
+                console.log(nums[first],nums[second],nums[third]);
+                result.push([nums[first],nums[second],nums[third]]);
+            }
+        }
+    }
+
+    return result;
+}
+
+var nums = [-1, 0, 1, 2, -1, -4];
+
+console.log(threeSum(nums))
+
+```
+
+输出
+```
+[ [ -1, -1, 2 ], [ -1, 0, 1 ] ]
+```

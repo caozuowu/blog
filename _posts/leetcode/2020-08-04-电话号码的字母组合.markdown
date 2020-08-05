@@ -9,4 +9,45 @@ categories:
 
 给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合，手机九宫键盘。
  
+```javascript
 
+var mark = {
+    2:['a','b','c'],
+    3:['d','e','f'],
+    4:['g','h','i'],
+    5:['j','k','l'],
+    6:['m','n','o'],
+    7:['p','q','r','s'],
+    8:['t','u','v'],
+    9:['w','x','y','z'],
+}
+
+var result = []
+
+var backtrack = function (temp, str) {
+
+    if (str.length == 0) {
+        result.push(temp)
+        return;
+    }
+
+    if (str.length > 0) {
+        for (var c of mark[str[0]]) {
+            backtrack(temp+c ,str.substring(1,str.length))
+        }
+    }
+  
+}
+
+var letterCombinations = function(digits) {
+    backtrack('',digits);
+};
+
+letterCombinations('23')
+console.log(result)
+```
+
+输出
+```
+[ 'ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce', 'cf' ]
+```
