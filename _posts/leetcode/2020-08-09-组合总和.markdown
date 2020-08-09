@@ -1,0 +1,100 @@
+---
+layout: post
+author: zuowu
+date:   2020-08-09 13:16:00 +0800
+linkname: 组合总和
+categories: 
+  - leetcode
+---
+
+给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
+
+
+示例：
+```
+输入：candidates = [2,3,5], target = 8,
+所求解集为：
+[
+  [2,2,2,2],
+  [2,3,3],
+  [3,5]
+]
+```
+
+回溯： 雷同全排列
+
+```javascript
+
+var result = []
+
+var deepSelected = function (array, candidates, target, start) {
+
+    if (target <= 0) {
+        if (target == 0) {
+            console.log(array);
+            result.push([].concat(array))
+        }
+        return;
+    }
+
+    //传入 start 因为 从前往后便遍历 i-j 的组合已经出现过了 没必要在 后面j的时候在考虑 i的情况 去重复
+    for (var i = start; i < candidates.length; i ++) {
+        array.push(candidates[i])
+        deepSelected(array , candidates, target-candidates[i], i)
+        array.pop()
+    }
+}
+
+
+var combinationSum = function(candidates, target) {
+
+    deepSelected([], candidates, target, 0);
+    console.log('result = ', result);
+
+};
+
+
+var candidates = [2,3,5];
+var target = 8;
+
+combinationSum(candidates, target)
+
+```
+
+输出
+```
+[ 2, 2, 2, 2 ]
+[ 2, 3, 3 ]
+[ 3, 5 ]
+result =  [ [ 2, 2, 2, 2 ], [ 2, 3, 3 ], [ 3, 5 ] ]
+```
+
+如果允许重复需要加上判断
+```javascript
+//数组candidates 要先排序
+var deepSelected = function (array, candidates, target, start) {
+
+    if (target <= 0) {
+        if (target == 0) {
+            console.log(array);
+            result.push([].concat(array))
+        }
+        return;
+    }
+
+    for (var i = start; i < candidates.length; i ++) {
+        //去重
+        if (target < candidates[i]) {
+            continue
+        }
+        //去重
+        if (i > start && candidates[i] == candidates[i-1]) {
+            continue;
+        }
+        array.push(candidates[i])
+        deepSelected(array , candidates, target-candidates[i], i+1)
+        array.pop()
+    }
+}
+```
+
