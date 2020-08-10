@@ -1,29 +1,48 @@
 
 
-var searchRange = function (target, nums) {
 
-    var lowLeft = 0;
-    var lowRight = nums.length-1;
 
-    var low = 0;
 
-    while (lowLeft < lowRight) {
-        var lowMid = Math.floor((lowRight-lowLeft)/2);
-        if (target == nums[lowMid]) {
-            low = lowMid;
-            break;
-        }
-        if (target < nums[lowMid]) {
-            lowRight = lowMid-1
-        }else {
-            lowLeft = lowMid+1
-        }
-    }
 
-    console.log(low)
 
-}
+var groupAnagrams = function(strs) {
 
-var nums = [5,7,7,8,8,10]
-var target = 8
-searchRange(target, nums)
+   var count = new Array(26).fill(0)
+   // count["z".charCodeAt()-"a".charCodeAt()] = 1;
+
+   // console.log(count)
+   var mark = {};
+   var result = [];
+
+   for (var str of strs) {
+
+      count.fill(0)
+      for (var i = 0; i < str.length; i++) {
+         var char = str[i];
+         count[char.charCodeAt()-'a'.charCodeAt()]++
+      }
+      var key = '#';
+      for (var i = 0; i < count.length; i++) {
+         key += count[i] + '#'
+      }
+      
+      if (!mark[key]) {
+         mark[key] = [str]
+      }else {
+         mark[key].push(str)
+      }
+   }
+
+   for (var key in mark) {
+      result.push(mark[key]);
+   }
+
+   console.log(mark);
+   console.log(result);
+   return result;
+};
+
+var strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
+groupAnagrams(strs)
+
+

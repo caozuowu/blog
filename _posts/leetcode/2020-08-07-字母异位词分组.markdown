@@ -1,0 +1,77 @@
+---
+layout: post
+author: zuowu
+date:   2020-08-07 16:36:00 +0800
+linkname: 字母异位词分组
+categories: 
+  - leetcode
+---
+
+给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。
+
+示例:    
+
+```
+输入: ["eat", "tea", "tan", "ate", "nat", "bat"]
+输出:
+[
+  ["ate","eat","tea"],
+  ["nat","tan"],
+  ["bat"]
+]
+
+```
+
+将字符串进行编码编码为26位长度字符串,每一位代表该位置字符的数量,可以将不同顺序的字符串保存为一个key变量
+
+```javascript
+
+var groupAnagrams = function(strs) {
+
+   var count = new Array(26).fill(0)
+
+   var mark = {};
+   var result = [];
+
+   for (var str of strs) {
+
+      count.fill(0)
+      for (var i = 0; i < str.length; i++) {
+         var char = str[i];
+         count[char.charCodeAt()-'a'.charCodeAt()]++
+      }
+      var key = '#';
+      for (var i = 0; i < count.length; i++) {
+         key += count[i] + '#'
+      }
+      
+      if (!mark[key]) {
+         mark[key] = [str]
+      }else {
+         mark[key].push(str)
+      }
+   }
+
+   for (var key in mark) {
+      result.push(mark[key]);
+   }
+
+   console.log(mark);
+   console.log(result);
+   return result;
+};
+
+var strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
+groupAnagrams(strs)
+```
+
+输出:    
+```
+{ '#1#0#0#0#1#0#0#0#0#0#0#0#0#0#0#0#0#0#0#1#0#0#0#0#0#0#': [ 'eat', 'tea', 'ate' ],
+  '#1#0#0#0#0#0#0#0#0#0#0#0#0#1#0#0#0#0#0#1#0#0#0#0#0#0#': [ 'tan', 'nat' ],
+  '#1#1#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#1#0#0#0#0#0#0#': [ 'bat' ] }
+[ [ 'eat', 'tea', 'ate' ], [ 'tan', 'nat' ], [ 'bat' ] ]
+```
+
+
+

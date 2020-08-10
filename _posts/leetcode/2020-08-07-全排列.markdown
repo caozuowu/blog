@@ -1,0 +1,83 @@
+---
+layout: post
+author: zuowu
+date:   2020-08-07 14:22:00 +0800
+linkname: 全排列
+categories: 
+  - leetcode
+---
+
+给定一个 没有重复 数字的序列，返回其所有可能的全排列。    
+
+示例:    
+
+```
+输入: [1,2,3]
+输出:
+[
+  [1,2,3],
+  [1,3,2],
+  [2,1,3],
+  [2,3,1],
+  [3,1,2],
+  [3,2,1]
+]
+```
+
+递归    
+
+ * 全排列 = 每个元素放在第一位 + 后面所有元素的全排列;    
+ * 后面所有元素的全排列 = 递归上一步    
+
+时间复杂度:$O(n*n!)$    
+控件复杂度:$O(n)$
+
+```javascript
+
+Array.prototype.swap = function(a,b) {
+   var temp = this[a];
+   this[a] = this[b];
+   this[b] = temp;
+}
+
+var arrangement = function(array, start, end) {
+
+   if (start == end) {
+      console.log(array)
+      return;
+   }
+
+   var mark = {}
+
+   for (var i = start; i < end; i++ ){
+    
+    /*如果有重复元素需要去重复,则在每次循环记录一下第一个是否已经使用过,如果使用过则直接跳过*/
+    if (!mark[array[i]]) {
+         mark[array[i]] = true
+      }else {
+         continue;
+      }
+
+      array.swap(i, start)
+      arrangement(array, start+1, end)
+      array.swap(i, start)
+   }
+};
+
+var arr = ['a','b','c'];
+arrangement(arr, 0, arr.length)
+
+```
+
+输出:    
+```
+[ 'a', 'b', 'c' ]
+[ 'a', 'c', 'b' ]
+[ 'b', 'a', 'c' ]
+[ 'b', 'c', 'a' ]
+[ 'c', 'b', 'a' ]
+[ 'c', 'a', 'b' ]
+```
+
+#### 去重复全排列
+
