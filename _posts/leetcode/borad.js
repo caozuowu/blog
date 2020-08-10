@@ -1,48 +1,30 @@
 
 
 
+var generateMatrix = function(n) {
 
-
-
-
-var groupAnagrams = function(strs) {
-
-   var count = new Array(26).fill(0)
-   // count["z".charCodeAt()-"a".charCodeAt()] = 1;
-
-   // console.log(count)
-   var mark = {};
-   var result = [];
-
-   for (var str of strs) {
-
-      count.fill(0)
-      for (var i = 0; i < str.length; i++) {
-         var char = str[i];
-         count[char.charCodeAt()-'a'.charCodeAt()]++
-      }
-      var key = '#';
-      for (var i = 0; i < count.length; i++) {
-         key += count[i] + '#'
-      }
-      
-      if (!mark[key]) {
-         mark[key] = [str]
-      }else {
-         mark[key].push(str)
-      }
+   var matrix = [];
+   for (var i = 0; i < n; i++) {
+      matrix.push(new Array(n))
    }
+   var left = 0; right = n-1; top = 0; bottom = n-1;
+   var num = 1;
 
-   for (var key in mark) {
-      result.push(mark[key]);
+   while (num <= n*n) {
+
+      for (var i = left; i <= right; i++) matrix[top][i] = num++;
+      top++;
+
+      for (var i = top; i <= bottom; i++) matrix[i][right] = num++;
+      right--;
+
+      for (var i = right; i >= left; i--)  matrix[bottom][i] = num++;
+      bottom--;
+
+      for (var i = bottom; i >= top; i--) matrix[i][left] = num++;
+      left++;
    }
-
-   console.log(mark);
-   console.log(result);
-   return result;
+   console.log(matrix);
 };
 
-var strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
-groupAnagrams(strs)
-
-
+generateMatrix(5)

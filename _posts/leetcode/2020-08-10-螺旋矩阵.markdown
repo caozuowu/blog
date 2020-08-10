@@ -1,0 +1,126 @@
+---
+layout: post
+author: zuowu
+date:   2020-08-10 15:56:00 +0800
+linkname: 螺旋矩阵
+categories: 
+  - leetcode
+---
+
+### 螺旋矩阵 I
+
+给定一个包含 m x n 个元素的矩阵（m 行, n 列），请按照顺时针螺旋顺序，返回矩阵中的所有元素。
+
+
+示例：
+```
+输入:
+[
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9,10,11,12]
+]
+输出: [1,2,3,4,8,12,11,10,9,5,6,7]
+
+```
+
+直接撸
+
+```javascript
+var spiralOrder = function(matrix) {
+
+   if (!matrix || matrix.length == 0 || matrix[0].length == 0) {
+      return [];
+   }
+
+   var result = [];
+   var rows = matrix.length;
+   var colums = matrix[0].length
+   var left = 0, right = colums-1, top = 0, bottom = rows-1;
+
+   while (left <= right && top <= bottom) {
+
+      for (var colum = left; colum <= right; colum++) {
+         result.push(matrix[top][colum])
+      }
+
+      for (var row = top+1; row <= bottom; row ++) {
+         result.push(matrix[row][right])
+      }
+
+      if (left < right && top < bottom) {
+         for (var colum = right - 1; colum > left; colum --) {
+            result.push(matrix[bottom][colum])
+         }
+   
+         for (var row = bottom ; row > top; row --) {
+            result.push(matrix[row][left])
+         }
+      }
+
+      left++;
+      right--;
+      top++;
+      bottom--;
+   }
+};
+
+var input = [
+   [1, 2, 3, 4],
+   [5, 6, 7, 8],
+   [9,10,11,12]
+ ];
+
+spiralOrder(input);
+
+};
+
+console.log(canJump([3,2,1,0,4]));
+```
+
+### 螺旋矩阵 II
+
+给定一个正整数 n，生成一个包含 1 到 n2 所有元素，且元素按顺时针顺序螺旋排列的正方形矩阵。    
+
+示例:
+```
+输入: 3
+输出:
+[
+ [ 1, 2, 3 ],
+ [ 8, 9, 4 ],
+ [ 7, 6, 5 ]
+]
+```
+
+直接撸:
+
+```javascript
+var generateMatrix = function(n) {
+
+   var matrix = [];
+   for (var i = 0; i < n; i++) {
+      matrix.push(new Array(n))
+   }
+   var left = 0; right = n-1; top = 0; bottom = n-1;
+   var num = 1;
+
+   while (num <= n*n) {
+
+      for (var i = left; i <= right; i++) matrix[top][i] = num++;
+      top++;
+
+      for (var i = top; i <= bottom; i++) matrix[i][right] = num++;
+      right--;
+
+      for (var i = right; i >= left; i--)  matrix[bottom][i] = num++;
+      bottom--;
+
+      for (var i = bottom; i >= top; i--) matrix[i][left] = num++;
+      left++;
+   }
+   console.log(matrix);
+};
+
+generateMatrix(5)
+```
