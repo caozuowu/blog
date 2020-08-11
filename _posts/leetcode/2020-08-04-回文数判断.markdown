@@ -25,7 +25,7 @@ categories:
 ```
 
 整数计算
-``` c
+``` c++
 bool palindrome(int x) {
     if (x < 0 || (x % 10 == 0 && x != 0)) {
         return false;
