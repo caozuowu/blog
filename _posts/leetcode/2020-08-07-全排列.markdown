@@ -81,3 +81,48 @@ arrangement(arr, 0, arr.length)
 
 #### 去重复全排列
 
+
+#### 求组合
+给定两个整数 n 和 k，返回 1 ... n 中所有可能的 k 个数的组合。    
+
+示例:    
+```
+输入: n = 4, k = 2
+输出:
+[
+  [2,4],
+  [3,4],
+  [2,3],
+  [1,2],
+  [1,3],
+  [1,4],
+]
+```
+
+递归
+
+```javascript 
+var deepSearch = function(start , end, k, array) {
+
+    if (array.length == k) {
+        console.log(array)
+        return;
+    }
+
+    //因为到第i个的时候前面的小于i和i的组合已经出现了 所以不用考虑每次直接递归下一个i即可
+    for (var i = start; i <= end; i++) {
+        array.push(i)
+        deepSearch(i+1,end, k, array)
+        array.pop()
+    }
+
+}
+
+
+var combine = function(n, k) {
+    deepSearch(1, n, k, []);
+};
+
+combine(4,2)
+```
+
