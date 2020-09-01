@@ -1,0 +1,92 @@
+---
+layout: post
+author: zuowu
+date:   2020-09-01 17:51:00 +0800
+linkname: 岛屿问题
+categories: 
+  - leetcode
+---
+
+给你一个由 '1'（陆地）和 '0'（水）组成的的二维网格，请你计算网格中岛屿的数量。    
+岛屿总是被水包围，并且每座岛屿只能由水平方向或竖直方向上相邻的陆地连接形成。    
+此外，你可以假设该网格的四条边均被水包围。
+
+
+示例：    
+```
+输入:
+[
+['1','1','1','1','0'],
+['1','1','0','1','0'],
+['1','1','0','0','0'],
+['0','0','0','0','0']
+]
+输出: 1
+
+```
+
+深度优先搜索    
+
+```javascript
+
+var grid = [
+    ['1','1','0','0','0'],
+    ['1','1','0','0','0'],
+    ['0','0','1','0','0'],
+    ['0','0','0','1','1']
+]
+
+
+var numIslands = function(grid) {
+    console.log(grid)
+
+    var height = grid.length;
+    var width = grid[0].length;
+    var queue = []
+
+    for (var r = 0; r < height; r++) {
+        for (var c = 0; c < width; c++) {
+            if (grid[r][c] == 1) {
+                queue.shift({
+                    r:r,
+                    c:c
+                })
+                while (queue.length > 0) {
+                    var l = queue.length;
+                    for (var i = 0; i < l ; i ++) {
+                        var p = queue.unshift();
+                        grid[p.r][p.c] = 0;
+                        //上左下右
+                        var top = {
+                            r: p.r-1,
+                            c: p.c
+                        }
+                        var left = {
+                            r: p.r,
+                            c: p.c-1
+                        }
+                        var bottom = {
+                            r: p.r+1,
+                            c: p.c
+                        }
+                        var right = {
+                            r: p.r,
+                            c: p.c+1
+                        }
+                        for (var s of [top, left, bottom, right]) {
+                            if (s.r > 0 && s.r < height && s.c > 0 && s.c < width && grid[s.r][s.c] == 1) {
+                                queue.push(s)
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+};
+
+numIslands(grid)
+
+
+```
