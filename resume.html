@@ -237,6 +237,18 @@
                 title: "Work experience",
                 items:[
                     {
+                        company:"Perfect World",
+                        duration:"2020.12 - now ",
+                        position:"IOS development engineer, person in charge of App Engine IOS",
+                        content: [
+                            "Responsible for the source code component architecture of IOS applet engine, script middleware code writing,",
+                            "Responsible for the optimization of the source code and Middleware of the applet engine, and the repair of difficult and miscellaneous problems and bugs.",
+                            "Responsible for researching small programs and game engines, and improving the functions of iteration engines.",
+                            "Responsible for guiding junior engineers and front-end engineers in code specification, engine usage and technology sharing.",
+                            "Responsible for writing technical documents"
+                        ]
+                    },
+                    {
                         company:'Sina Weibo',
                         duration:"2018.01 - now ",
                         position:"iOS Engineer",
@@ -457,9 +469,21 @@
             window.onload = (e) => {
                 var type = e.target.location.search
                 // type.shift()
-                console.log(e)
-                console.log(type)
-                this.language = body_language.cn
+                //console.log(e)
+                //console.log(type.substring(1).split("&"))
+                var parms = type.substring(1).split("&")
+                for (var parm of parms) {
+                    console.log(parm)
+                    var pair = parm.split("=");
+                    if (pair.length < 2) {
+                        break;
+                    }
+                    var key = pair[0];
+                    var value = pair[1];
+                    if (key == "lan" || key == "language" || key == "l") {
+                        this.language = body_language[value=="en"?"en":"cn"]
+                    }
+                }
             }
         },
         methods: {
