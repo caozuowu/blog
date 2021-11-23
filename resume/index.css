@@ -1,0 +1,213 @@
+body {
+    width: 800px;
+    height: fit-content;
+    background-color: white;
+    color: black;
+    border: 1px rgba(0, 0, 0, 0.4) solid;
+    box-sizing: border-box;
+    display: flex;
+    padding: 1rem 2rem 1rem 2rem;
+    flex-direction: column;
+    white-space: pre-line;
+    font-size: 0.9rem;
+}
+
+
+/*移动设备*/
+@media screen and (max-device-width:680px) {
+    body {
+        width: 98vw;
+    }
+}
+
+header {
+    background: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    height: 86px;
+    color: white;
+    flex-direction: row;
+    align-items: flex-end;
+    display: flex;
+    padding: 0 20px 0 20px;
+    border-radius: 5px;
+}
+
+context {
+    min-height: 100px;
+    /* padding-bottom: 0.5rem; */
+    border-radius: 5px;
+    margin-top: 18px;
+    border: 2px rgba(0, 0, 0, 0.4) solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+left-side {
+    width: 186px;
+    min-height: 186px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* padding: 12px; */
+}
+
+left-side img{
+    width: 100%;
+}
+
+left-side info-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 12px;
+}
+
+left-side info-box t {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 24px;
+}
+left-side info-box c {
+    font-size: 14px;
+    /* color: rgba(0, 0, 0, 0.4); */
+    color: white;
+    line-height: 24px;
+}
+
+right-side {
+    flex-grow: 1;
+    min-height: 100px;
+    margin-left: 23px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+title-line {
+    width: 100%;
+    height: fit-content;
+    padding: 6px 0 6px 0;
+    font-size: 26px;
+    line-height: 26px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    /* margin: 10px 0 10px 0; */
+}
+
+right-side info-box {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+right-side info-box leading-area {
+    width: 14px;
+    height: 100%;
+    /* background-color: greenyellow; */
+    display: flex;
+    flex-direction: column;
+}
+
+right-side info-box leading-area img {
+    width: 100%;
+}
+
+right-side info-box info-experience {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-left: 6px;
+    padding-bottom: 16px;
+}
+
+right-side info-box info-experience t {
+    font-size: 14px;
+    line-height: 14px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+right-side info-box info-experience t-title {
+    font-size: 16px;
+    line-height: 50px;
+    color: black;
+    /* margin-bottom: 30px; */
+}
+
+right-side info-box info-experience t-context {
+    font-size: 14px;
+    line-height: 30px;
+    /* margin-bottom: 20px; */
+    color: black;
+}
+
+right-side info-box info-skill {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-left: 6px;
+}
+
+right-side info-box info-skill t{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-left: 6px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+right-info-line {
+    display: flex;
+    flex-direction: row;
+    padding: 12px 0 12px 0;
+}
+
+right-info-line t {
+    font-size: 14px;
+    line-height: 14px;
+    color: rgba(0, 0, 0, 0.5);
+    padding-left: 6px;
+}
+
+right-info-line t-context {
+    font-size: 14px;
+    line-height: 14px;
+    color: black;
+    margin-left: 20px;
+}
+
+right-info-line t-skill {
+    font-size: 14px;
+    line-height: 14px;
+    color: rgba(0, 0, 0, 0.5);
+    padding-left: 6px;
+    width: 110px;
+}
+
+footer {
+    background-color: red;
+    height: fit-content;
+    box-sizing: border-box;
+    margin-top: 1rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-self: start;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+footer a {
+    color: black;
+    text-decoration: none;
+}
